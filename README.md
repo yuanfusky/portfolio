@@ -21,6 +21,8 @@ npm run build
 
 The static site is generated in `dist/`.
 
+The build also adds a minimal Cloudflare-compatible static-assets entrypoint under `dist/server/`. It does not add runtime application logic; the website remains fully static.
+
 ## Project content model
 
 Every project is stored as a Markdown or MDX file in `src/content/projects/`. The homepage and project index read these files automatically. Dynamic detail pages are generated from each project's `slug`.
