@@ -21,7 +21,7 @@ npm run build
 
 The static site is generated in `dist/`.
 
-The build also adds a minimal Cloudflare-compatible static-assets entrypoint under `dist/server/`. It does not add runtime application logic; the website remains fully static.
+The build also arranges the generated files into `dist/client/` and adds a minimal Cloudflare-compatible static-assets entrypoint under `dist/server/`. It does not add runtime application logic; the website remains fully static.
 
 ## Project content model
 
