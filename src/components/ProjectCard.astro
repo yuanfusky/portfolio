@@ -1,0 +1,35 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import ProjectMeta from './ProjectMeta.astro';
+import Tag from './Tag.astro';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+  index: number;
+}
+const { project, index } = Astro.props;
+const { data } = project;
+---
+
+<article class="group relative border-t border-line py-10 transition md:py-14">
+  <a class="absolute inset-0 z-10" href={`/projects/${data.slug}/`} aria-label={`Read ${data.title}`}></a>
+  <div class="grid gap-8 lg:grid-cols-[4.5rem_minmax(0,1.05fr)_minmax(19rem,0.72fr)]">
+    <div class="font-mono text-[0.68rem] tracking-widest text-muted">{String(index + 1).padStart(2, '0')}</div>
+    <div>
+      <div class="mb-5 flex flex-wrap gap-2">
+        <Tag label={data.status} />
+        <Tag label={data.domain} />
+      </div>
+      <h3 class="max-w-3xl text-2xl font-medium leading-tight tracking-[-0.045em] transition group-hover:text-accent sm:text-3xl">{data.title}</h3>
+      <p class="mt-5 max-w-2xl text-sm leading-7 text-muted">{data.oneLineProblem}</p>
+    </div>
+    <div class="flex flex-col justify-between gap-8 border-l border-line pl-6">
+      <ProjectMeta dataType={data.dataType} methods={data.methods} tools={data.tools} />
+      <div>
+        <p class="eyebrow mb-2">Next extension</p>
+        <p class="line-clamp-2 text-xs leading-5 text-muted">{data.nextExtension}</p>
+        <span class="mt-5 inline-flex items-center gap-2 text-sm font-medium text-accent transition group-hover:gap-3">Read case study <span aria-hidden="true">→</span></span>
+      </div>
+    </div>
+  </div>
+</article>

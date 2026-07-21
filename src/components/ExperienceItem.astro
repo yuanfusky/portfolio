@@ -1,0 +1,23 @@
+---
+interface Props {
+  company: string;
+  role: string;
+  summary: string;
+  bullets: string[];
+}
+const { company, role, summary, bullets } = Astro.props;
+---
+
+<article class="grid gap-8 border border-line bg-surface/60 p-7 md:grid-cols-[minmax(14rem,0.42fr)_1fr] md:p-10">
+  <div>
+    <p class="eyebrow">Selected experience</p>
+    <h3 class="mt-5 text-2xl font-medium tracking-[-0.04em]">{company}</h3>
+    <p class="mt-2 text-sm text-muted">{role}</p>
+  </div>
+  <div>
+    <p class="text-base leading-7">{summary}</p>
+    <ul class="mt-7 grid gap-3 text-sm leading-6 text-muted sm:grid-cols-2">
+      {bullets.map((bullet) => <li class="border-t border-line pt-3">{bullet}</li>)}
+    </ul>
+  </div>
+</article>

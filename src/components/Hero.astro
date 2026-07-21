@@ -1,0 +1,35 @@
+---
+import Button from './Button.astro';
+---
+
+<section class="page-shell relative overflow-hidden pb-20 pt-16 sm:pt-24 lg:min-h-[calc(100vh-4rem)] lg:pb-24 lg:pt-28">
+  <div class="grid gap-16 lg:grid-cols-[minmax(0,1.35fr)_minmax(21rem,0.65fr)] lg:items-end">
+    <div>
+      <div class="mb-12 flex items-center gap-4">
+        <span class="eyebrow">Portfolio / 2026</span>
+        <span class="h-px w-16 bg-line"></span>
+        <span class="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted">Linköping, Sweden</span>
+      </div>
+      <p class="mb-5 max-w-2xl text-sm font-medium leading-6 text-muted sm:text-base">Data Science & Information Engineering Master's Student at Linköping University</p>
+      <h1 class="max-w-5xl text-[clamp(3.35rem,8.2vw,8.2rem)] font-medium leading-[0.88] tracking-[-0.072em] text-ink">
+        Building reliable <span class="text-accent">ML systems</span> from complex real-world data.
+      </h1>
+    </div>
+
+    <aside class="border-l border-line pl-6 lg:mb-1 lg:pl-8">
+      <p class="max-w-md text-base leading-7 text-muted">I care about models that are not only accurate, but also testable, explainable, and clearly communicated.</p>
+      <div class="mt-7 flex gap-3">
+        <Button href="#work">View Work</Button>
+        <Button href="/cv.pdf" variant="secondary">Download CV</Button>
+      </div>
+      <div class="mt-12 border-t border-line pt-5">
+        <p class="eyebrow mb-4">Focus areas</p>
+        <p class="font-mono text-[0.68rem] leading-6 tracking-wide text-muted">Applied ML · GenAI Evaluation · Data Engineering · Sensor Data · Signal Processing</p>
+      </div>
+    </aside>
+  </div>
+
+  <div class="mt-16 grid grid-cols-4 items-center gap-0 border-y border-line py-4 font-mono text-[0.6rem] uppercase tracking-[0.14em] text-muted sm:grid-cols-8 lg:mt-24">
+    <span>Input</span><span class="h-px bg-line"></span><span class="text-center text-accent">Model</span><span class="h-px bg-line"></span><span class="hidden sm:block">Evaluate</span><span class="hidden h-px bg-line sm:block"></span><span class="hidden text-right sm:block">Explain</span><span class="ml-auto hidden size-2 rounded-full bg-accent sm:block"></span>
+  </div>
+</section>

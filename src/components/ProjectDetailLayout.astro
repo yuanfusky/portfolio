@@ -1,0 +1,75 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from './Button.astro';
+import Tag from './Tag.astro';
+
+interface Props { project: CollectionEntry<'projects'>; }
+const { project } = Astro.props;
+const { data } = project;
+---
+
+<BaseLayout title={`${data.shortTitle} — Jingyuan Ren`} description={data.oneLineProblem}>
+  <article>
+    <header class="page-shell pb-16 pt-16 sm:pb-24 sm:pt-24">
+      <a href="/projects" class="eyebrow inline-flex items-center gap-2 transition hover:text-ink"><span aria-hidden="true">←</span> All projects</a>
+      <div class="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_19rem] lg:items-end">
+        <div>
+          <div class="mb-6 flex flex-wrap gap-2"><Tag label={data.status} /><Tag label={data.domain} /></div>
+          <h1 class="max-w-5xl text-[clamp(2.8rem,6vw,6.2rem)] font-medium leading-[0.94] tracking-[-0.065em]">{data.title}</h1>
+          <p class="mt-8 max-w-3xl text-lg leading-8 text-muted">{data.oneLineProblem}</p>
+        </div>
+        <div class="border-l border-line pl-6">
+          <p class="eyebrow">Project profile</p>
+          <dl class="mt-6 space-y-5 text-sm">
+            <div><dt class="text-muted">Data type</dt><dd class="mt-1 font-medium">{data.dataType}</dd></div>
+            <div><dt class="text-muted">Tools</dt><dd class="mt-1 font-medium">{data.tools.join(' · ')}</dd></div>
+            <div><dt class="text-muted">Methods</dt><dd class="mt-1 leading-6">{data.methods.join(' · ')}</dd></div>
+          </dl>
+        </div>
+      </div>
+    </header>
+
+    <div class="border-y border-line bg-surface/40">
+      <div class="page-shell grid lg:grid-cols-[15rem_minmax(0,46rem)] lg:gap-16">
+        <aside class="hidden border-r border-line py-16 pr-8 lg:block">
+          <div class="sticky top-24">
+            <p class="eyebrow">Case study</p>
+            <nav class="mt-7 space-y-3 text-sm text-muted" aria-label="Project sections">
+              <a class="block hover:text-accent" href="#overview">Overview</a>
+              <a class="block hover:text-accent" href="#demo">Interaction concept</a>
+              <a class="block hover:text-accent" href="#links">Links</a>
+            </nav>
+          </div>
+        </aside>
+        <div id="overview" class="py-16 lg:py-20">
+          <div class="prose-project"><slot /></div>
+
+          {data.interactionIdea && (
+            <section id="demo" class="mt-20 overflow-hidden border border-line bg-paper">
+              <div class="grid min-h-80 place-items-center p-8 text-center sm:p-12">
+                <div class="max-w-xl">
+                  <div class="mx-auto mb-7 grid size-16 place-items-center rounded-full border border-accent/30 bg-accent-soft font-mono text-xs text-accent">DEMO</div>
+                  <p class="eyebrow">Interaction / visual demo</p>
+                  <h2 class="mt-4 text-2xl font-medium tracking-[-0.04em]">A deliberate space for the next layer</h2>
+                  <p class="mt-4 text-sm leading-7 text-muted">{data.interactionIdea}</p>
+                  <p class="mt-4 font-mono text-[0.65rem] leading-5 text-accent">Interactive demo planned: explore how retrieval quality, noise level, or evaluation choices affect system behavior.</p>
+                </div>
+              </div>
+              <div class="grid grid-cols-4 border-t border-line font-mono text-[0.58rem] uppercase tracking-[0.12em] text-muted">
+                <span class="border-r border-line p-3">Input</span><span class="border-r border-line p-3">Vary</span><span class="border-r border-line p-3">Observe</span><span class="p-3">Evaluate</span>
+              </div>
+            </section>
+          )}
+
+          <section id="links" class="mt-20 border-t border-line pt-10">
+            <p class="eyebrow mb-6">Links</p>
+            <div class="flex flex-wrap gap-3">
+              {data.links.length > 0 ? data.links.map((link) => <Button href={link.url} variant="secondary" external>{link.label}</Button>) : <p class="text-sm text-muted">Code, report, and demo links will be added as the case study develops.</p>}
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

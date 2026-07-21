@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+const projects = (await getCollection('projects')).sort((a, b) => a.data.priority - b.data.priority);
+---
+
+<BaseLayout title="Projects — Jingyuan Ren" description="ML, AI evaluation, data engineering, and sensor systems work by Jingyuan Ren.">
+  <header class="page-shell pb-16 pt-20 sm:pb-24 sm:pt-28">
+    <p class="eyebrow">Project index</p>
+    <div class="mt-7 grid gap-8 lg:grid-cols-[1fr_24rem] lg:items-end">
+      <h1 class="text-[clamp(3.5rem,8vw,8rem)] font-medium leading-[0.88] tracking-[-0.07em]">Work in systems, models, and evaluation.</h1>
+      <p class="border-l border-line pl-6 text-sm leading-7 text-muted">This collection includes course projects, academic prototypes, and competition work. Each entry records what exists now and the next extension that could turn it into a deeper case study.</p>
+    </div>
+  </header>
+  <section class="border-t border-line bg-surface/50">
+    <div class="page-shell py-10 sm:py-16">
+      {projects.map((project, index) => <ProjectCard project={project} index={index} />)}
+    </div>
+  </section>
+</BaseLayout>
