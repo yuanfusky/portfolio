@@ -24,6 +24,8 @@ whatIBuilt: End-to-end training and evaluation workflows spanning preprocessing,
 whatILearned: Evaluation design and model complexity often matter as much as the selected algorithm.
 nextExtension: Turn the experiments into a reusable benchmarking framework with automated preprocessing, search, reporting, visualization, and interpretability.
 interactionIdea: "Planned comparison panel: switch among classification, regression, and imbalanced classification to see how metrics and model choices change."
+highlightValue: 8+
+highlightLabel: Model families evaluated
 featured: true
 priority: 4
 links: []

@@ -19,6 +19,8 @@ whatIBuilt: Reproducible evaluation scripts, experiment outputs, summary tables,
 whatILearned: Retrieval quality is a major driver of RAG performance, and more context is not always better.
 nextExtension: Test stronger embedding models or rerankers, add automatic retrieval-quality diagnostics, and evaluate across more datasets and generator models.
 interactionIdea: "Planned RAG pipeline: Query → Retrieved Context → Generated Answer → Evaluation Result. Inspect each step to see where reliability can break down."
+highlightValue: 81.4%
+highlightLabel: Best RAG accuracy
 featured: true
 priority: 1
 links: []

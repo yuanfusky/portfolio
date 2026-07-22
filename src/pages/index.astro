@@ -44,7 +44,7 @@ const thinking = [
   <section class="section-block bg-surface/50" id="work">
     <div class="page-shell">
       <SectionTitle index="02 / Systems" title="Selected ML & Data Systems Work" intro="Academic, competition, and research-oriented work—presented as it is today, with a clear path toward deeper case studies." />
-      <div>
+      <div class="border-t border-line">
         {projects.map((project, index) => <ProjectCard project={project} index={index} />)}
       </div>
       <div class="mt-8 flex justify-end"><Button href="/projects" variant="secondary">View all projects</Button></div>
@@ -101,18 +101,22 @@ const thinking = [
     </div>
   </section>
 
-  <section class="section-block bg-accent-soft" id="contact">
-    <div class="page-shell grid gap-12 lg:grid-cols-[1fr_auto] lg:items-end">
-      <div>
+  <section class="relative overflow-hidden border-t border-ink bg-surface" id="contact">
+    <div class="tech-grid absolute inset-0 opacity-70"></div>
+    <div class="page-shell relative z-10 py-20 sm:py-28">
+      <div class="mb-8 flex items-center justify-between border-b border-ink pb-5">
         <p class="eyebrow">06 / Contact</p>
-        <h2 class="mt-6 max-w-4xl text-[clamp(2.8rem,6vw,6rem)] font-medium leading-[0.95] tracking-[-0.065em]">Interested in reliable ML systems and careful evaluation?</h2>
-        <p class="mt-7 max-w-2xl text-base leading-7 text-muted">I’m preparing for MLE, AI Engineer, and Data Engineer roles. I’d be glad to discuss the work, the methods, or what I’m building next.</p>
+        <span class="system-chip">Available for MLE / AI / Data roles</span>
       </div>
-      <div class="flex flex-wrap gap-3 lg:max-w-72">
-        <Button href="mailto:hello@example.com">Email me</Button>
-        <Button href="https://github.com/" variant="secondary" external>GitHub</Button>
-        <Button href="https://www.linkedin.com/" variant="secondary" external>LinkedIn</Button>
-        <Button href="/cv.pdf" variant="secondary">CV PDF</Button>
+      <h2 class="max-w-7xl text-[clamp(3.6rem,10vw,10rem)] font-black uppercase leading-[0.76] tracking-[-0.085em] text-ink">Let's build<br />reliable systems<span class="text-accent">.</span></h2>
+      <div class="mt-14 grid gap-8 border-t border-line pt-8 lg:grid-cols-[1fr_auto] lg:items-end">
+        <p class="max-w-2xl text-base leading-7 text-muted">I’m preparing for MLE, AI Engineer, and Data Engineer roles. I’d be glad to discuss the work, the methods, or what I’m building next.</p>
+        <div class="flex flex-wrap gap-3">
+          <Button href="mailto:hello@example.com">Email me</Button>
+          <Button href="https://github.com/" variant="secondary" external>GitHub</Button>
+          <Button href="https://www.linkedin.com/" variant="secondary" external>LinkedIn</Button>
+          <Button href="/cv.pdf" variant="secondary">CV PDF</Button>
+        </div>
       </div>
     </div>
   </section>

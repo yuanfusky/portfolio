@@ -18,6 +18,8 @@ whatIBuilt: An end-to-end generation and validation pipeline with quality evalua
 whatILearned: In medical data, preserving semantic meaning can matter more than applying aggressive modeling everywhere.
 nextExtension: Make the pipeline configurable across medical datasets and add a dashboard comparing quality, privacy risk, and downstream utility.
 interactionIdea: "Planned privacy–utility control: adjust privacy protection and inspect the resulting changes in statistical fidelity and downstream usability."
+highlightValue: 1st
+highlightLabel: Encare Hackathon 2026
 featured: true
 priority: 2
 links: []

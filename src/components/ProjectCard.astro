@@ -1,6 +1,5 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import ProjectMeta from './ProjectMeta.astro';
 import Tag from './Tag.astro';
 
 interface Props {
@@ -11,24 +10,50 @@ const { project, index } = Astro.props;
 const { data } = project;
 ---
 
-<article class="group relative border-t border-line py-10 transition md:py-14">
-  <a class="absolute inset-0 z-10" href={`/projects/${data.slug}/`} aria-label={`Read ${data.title}`}></a>
-  <div class="grid gap-8 lg:grid-cols-[4.5rem_minmax(0,1.05fr)_minmax(19rem,0.72fr)]">
-    <div class="font-mono text-[0.68rem] tracking-widest text-muted">{String(index + 1).padStart(2, '0')}</div>
+<article class="group relative overflow-hidden border-b border-line bg-transparent transition duration-300 hover:bg-surface">
+  <a class="absolute inset-0 z-20" href={`/projects/${data.slug}/`} aria-label={`Read ${data.title}`}></a>
+  <div class="tech-grid absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100"></div>
+
+  <div class="relative z-10 grid gap-7 py-10 md:py-12 lg:grid-cols-[4.5rem_minmax(0,1fr)_13rem] lg:items-start">
+    <div class="flex items-center justify-between lg:block">
+      <span class="font-mono text-xs tracking-[0.16em] text-accent">{String(index + 1).padStart(2, '0')}</span>
+      <span class="font-mono text-[0.58rem] uppercase tracking-[0.12em] text-muted lg:hidden">{data.domain}</span>
+    </div>
+
     <div>
       <div class="mb-5 flex flex-wrap gap-2">
         <Tag label={data.status} />
         <Tag label={data.domain} />
       </div>
-      <h3 class="max-w-3xl text-2xl font-medium leading-tight tracking-[-0.045em] transition group-hover:text-accent sm:text-3xl">{data.title}</h3>
-      <p class="mt-5 max-w-2xl text-sm leading-7 text-muted">{data.oneLineProblem}</p>
+      <h3 class="max-w-5xl text-3xl font-bold leading-[1.02] tracking-[-0.055em] transition duration-300 group-hover:text-accent sm:text-4xl lg:text-5xl">{data.title}</h3>
+      <p class="mt-5 max-w-3xl text-sm leading-7 text-muted">{data.oneLineProblem}</p>
+
+      <div class="mt-8 grid gap-5 border-t border-line pt-5 text-xs sm:grid-cols-3">
+        <div>
+          <p class="eyebrow mb-2">Data</p>
+          <p class="leading-5 text-muted">{data.dataType}</p>
+        </div>
+        <div>
+          <p class="eyebrow mb-2">Methods</p>
+          <p class="leading-5 text-muted">{data.methods.slice(0, 3).join(' · ')}</p>
+        </div>
+        <div>
+          <p class="eyebrow mb-2">Tools</p>
+          <p class="leading-5 text-muted">{data.tools.join(' · ')}</p>
+        </div>
+      </div>
     </div>
-    <div class="flex flex-col justify-between gap-8 border-l border-line pl-6">
-      <ProjectMeta dataType={data.dataType} methods={data.methods} tools={data.tools} />
-      <div>
-        <p class="eyebrow mb-2">Next extension</p>
-        <p class="line-clamp-2 text-xs leading-5 text-muted">{data.nextExtension}</p>
-        <span class="mt-5 inline-flex items-center gap-2 text-sm font-medium text-accent transition group-hover:gap-3">Read case study <span aria-hidden="true">→</span></span>
+
+    <div class="flex items-end justify-between border-l border-line pl-6 lg:min-h-60 lg:flex-col lg:items-stretch">
+      {data.highlightValue ? (
+        <div>
+          <p class="text-4xl font-black tracking-[-0.06em] text-ink transition group-hover:text-accent lg:text-5xl">{data.highlightValue}</p>
+          <p class="mt-2 font-mono text-[0.58rem] uppercase leading-5 tracking-[0.12em] text-muted">{data.highlightLabel}</p>
+        </div>
+      ) : <span></span>}
+      <div class="flex items-center justify-end gap-3 text-accent">
+        <span class="font-mono text-[0.6rem] uppercase tracking-[0.12em] opacity-0 transition group-hover:opacity-100">Open case study</span>
+        <span class="text-5xl font-light leading-none transition duration-300 group-hover:translate-x-2">→</span>
       </div>
     </div>
   </div>

@@ -22,6 +22,8 @@ whatIBuilt: MATLAB localization, tracking, and quaternion-EKF pipelines with cal
 whatILearned: Observability, calibration, sensor geometry, and carefully chosen correction signals determine whether fusion remains stable.
 nextExtension: Estimate bias online, use innovation-based statistical gating, compare filter formulations, and add quantitative ground-truth evaluation.
 interactionIdea: "Planned sensor-noise control: increase measurement noise to compare raw observations against the filtered state estimate."
+highlightValue: "2"
+highlightLabel: Sensor systems studied
 featured: true
 priority: 3
 links: []

@@ -18,6 +18,8 @@ const projects = defineCollection({
     whatILearned: z.string(),
     nextExtension: z.string(),
     interactionIdea: z.string(),
+    highlightValue: z.string().optional(),
+    highlightLabel: z.string().optional(),
     featured: z.boolean().default(false),
     priority: z.number().default(99),
     links: z.array(z.object({ label: z.string(), url: z.string() })).default([]),

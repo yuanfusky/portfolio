@@ -7,10 +7,10 @@ interface Props {
 const { index, title, intro } = Astro.props;
 ---
 
-<header class="mb-10 grid gap-4 md:mb-14 md:grid-cols-[minmax(0,1fr)_minmax(18rem,0.62fr)] md:items-end">
+<header class="mb-10 grid gap-5 border-b border-line pb-8 md:mb-14 md:grid-cols-[minmax(0,1fr)_minmax(18rem,0.62fr)] md:items-end md:pb-10">
   <div>
-    <p class="eyebrow mb-4">{index}</p>
-    <h2 class="max-w-3xl text-3xl font-medium tracking-[-0.045em] text-ink sm:text-4xl lg:text-5xl">{title}</h2>
+    <p class="eyebrow mb-5">{index}</p>
+    <h2 class="max-w-4xl text-4xl font-black uppercase leading-[0.9] tracking-[-0.065em] text-ink sm:text-5xl lg:text-6xl">{title}<span class="text-accent">.</span></h2>
   </div>
-  {intro && <p class="max-w-xl text-sm leading-7 text-muted md:justify-self-end">{intro}</p>}
+  {intro && <p class="max-w-xl border-l border-line pl-5 text-sm leading-7 text-muted md:justify-self-end">{intro}</p>}
 </header>
