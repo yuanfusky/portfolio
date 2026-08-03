@@ -3,8 +3,8 @@ interface Props { title: string; text: string; index: string; }
 const { title, text, index } = Astro.props;
 ---
 
-<article class="group border-l border-line pl-5 transition hover:border-accent sm:pl-7">
+<article class="group border-l border-ink/25 pl-5 transition hover:border-accent sm:pl-7">
   <p class="font-mono text-[0.65rem] tracking-widest text-accent">{index} / METHOD</p>
-  <h3 class="mt-8 text-2xl font-bold tracking-[-0.045em] transition group-hover:text-accent">{title}</h3>
+  <h3 class="mt-8 font-serif text-3xl tracking-[-0.045em] transition group-hover:text-accent">{title}</h3>
   <p class="mt-4 text-sm leading-7 text-muted">{text}</p>
 </article>

@@ -10,13 +10,13 @@ const { project, index } = Astro.props;
 const { data } = project;
 ---
 
-<article class="group relative overflow-hidden border-b border-line bg-transparent transition duration-300 hover:bg-surface">
+<article class="group relative overflow-hidden border-b border-ink/25 bg-transparent transition duration-300 hover:bg-surface/60">
   <a class="absolute inset-0 z-20" href={`/projects/${data.slug}/`} aria-label={`Read ${data.title}`}></a>
-  <div class="tech-grid absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100"></div>
+  <div class="absolute bottom-0 left-0 top-0 w-2 origin-bottom scale-y-0 bg-accent transition duration-300 group-hover:scale-y-100"></div>
 
-  <div class="relative z-10 grid gap-7 py-10 md:py-12 lg:grid-cols-[4.5rem_minmax(0,1fr)_13rem] lg:items-start">
+  <div class="relative z-10 grid gap-7 py-11 transition duration-300 group-hover:pl-5 md:py-14 lg:grid-cols-[5.5rem_minmax(0,1fr)_14rem] lg:items-start">
     <div class="flex items-center justify-between lg:block">
-      <span class="font-mono text-xs tracking-[0.16em] text-accent">{String(index + 1).padStart(2, '0')}</span>
+      <span class="font-serif text-5xl italic leading-none tracking-[-0.05em] text-accent">{String(index + 1).padStart(2, '0')}</span>
       <span class="font-mono text-[0.58rem] uppercase tracking-[0.12em] text-muted lg:hidden">{data.domain}</span>
     </div>
 
@@ -25,7 +25,7 @@ const { data } = project;
         <Tag label={data.status} />
         <Tag label={data.domain} />
       </div>
-      <h3 class="max-w-5xl text-3xl font-bold leading-[1.02] tracking-[-0.055em] transition duration-300 group-hover:text-accent sm:text-4xl lg:text-5xl">{data.title}</h3>
+      <h3 class="max-w-5xl font-serif text-3xl font-normal leading-[1.02] tracking-[-0.05em] transition duration-300 group-hover:text-accent sm:text-4xl lg:text-[3.35rem]">{data.title}</h3>
       <p class="mt-5 max-w-3xl text-sm leading-7 text-muted">{data.oneLineProblem}</p>
 
       <div class="mt-8 grid gap-5 border-t border-line pt-5 text-xs sm:grid-cols-3">
@@ -44,10 +44,10 @@ const { data } = project;
       </div>
     </div>
 
-    <div class="flex items-end justify-between border-l border-line pl-6 lg:min-h-60 lg:flex-col lg:items-stretch">
+    <div class="flex items-end justify-between border-l border-ink/25 pl-6 lg:min-h-60 lg:flex-col lg:items-stretch">
       {data.highlightValue ? (
         <div>
-          <p class="text-4xl font-black tracking-[-0.06em] text-ink transition group-hover:text-accent lg:text-5xl">{data.highlightValue}</p>
+          <p class="font-serif text-4xl italic tracking-[-0.06em] text-ink transition group-hover:text-accent lg:text-5xl">{data.highlightValue}</p>
           <p class="mt-2 font-mono text-[0.58rem] uppercase leading-5 tracking-[0.12em] text-muted">{data.highlightLabel}</p>
         </div>
       ) : <span></span>}

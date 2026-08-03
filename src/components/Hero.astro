@@ -2,50 +2,56 @@
 import Button from './Button.astro';
 ---
 
-<section class="page-shell relative overflow-hidden pb-20 pt-8 sm:pb-24 sm:pt-12 lg:min-h-[calc(100vh-4.5rem)]">
-  <div class="corner-frame relative border-y border-line px-4 py-5 sm:px-7">
+<section class="page-shell relative overflow-hidden pb-24 pt-7 sm:pb-28 sm:pt-10 lg:min-h-[calc(100vh-4.5rem)]">
+  <div class="relative border-y border-ink/25 px-1 py-4">
     <div class="flex flex-wrap items-center justify-between gap-3">
-      <span class="system-chip">System profile / 2026</span>
+      <span class="font-mono text-[0.58rem] uppercase tracking-[0.16em] text-muted">Technical folio / issue 01 / 2026</span>
       <div class="flex items-center gap-5 font-mono text-[0.58rem] uppercase tracking-[0.14em] text-muted">
         <span>Linköping / SE</span>
         <span class="hidden sm:inline">UTC+02</span>
-        <span class="text-accent">Open to roles</span>
+        <span class="bg-accent px-2 py-1 text-white">Open to roles</span>
       </div>
     </div>
   </div>
 
-  <div class="relative py-12 sm:py-16 lg:py-20">
-    <div class="tech-grid absolute inset-y-8 right-0 hidden w-[42%] opacity-60 lg:block"></div>
-    <div class="absolute right-[8%] top-[14%] hidden size-44 rounded-full border border-dashed border-accent/25 lg:block"></div>
-    <div class="absolute right-[13%] top-[25%] hidden size-24 rounded-full bg-accent/8 blur-2xl lg:block"></div>
-
+  <div class="relative grid min-h-[34rem] gap-10 py-14 sm:py-20 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-center lg:py-24">
     <div class="relative z-10">
-      <p class="eyebrow mb-5">Jingyuan Ren / Portfolio</p>
-      <div aria-hidden="true" class="select-none text-[clamp(4.5rem,13.2vw,13.6rem)] font-black uppercase leading-[0.72] tracking-[-0.09em] text-ink">
-        Jingyuan<span class="text-accent">.</span><br />Ren
+      <p class="mb-7 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-muted">Jingyuan Ren / ML systems & evidence</p>
+      <div aria-hidden="true" class="print-offset select-none font-serif text-[clamp(4.6rem,12.5vw,12.5rem)] leading-[0.68] tracking-[-0.085em] text-ink">
+        Jingyuan<br /><span class="italic">Ren</span><span class="text-accent">.</span>
       </div>
-      <p class="mt-10 max-w-2xl border-l-2 border-accent pl-5 text-sm font-medium leading-6 text-muted sm:text-base">Data Science & Information Engineering Master's Student at Linköping University</p>
+      <p class="mt-12 max-w-2xl text-sm leading-6 text-muted sm:text-base">Data Science & Information Engineering Master's Student<br class="hidden sm:block" /> at Linköping University</p>
     </div>
+
+    <aside class="relative min-h-56 border-l border-ink/25 pl-7 lg:min-h-80">
+      <div class="absolute left-7 top-2 h-28 w-20 -rotate-2 bg-accent"></div>
+      <div class="paper-surface absolute left-14 top-10 h-32 w-32 rotate-3 border border-ink/20 p-3 shadow-[6px_7px_0_rgba(23,25,21,.08)]">
+        <div class="h-full border border-dashed border-ink/25 p-3 font-mono text-[0.5rem] uppercase leading-4 tracking-[0.1em] text-muted">
+          evidence<br />measure<br />retrieve<br />estimate<br /><span class="text-accent">evaluate</span>
+        </div>
+      </div>
+      <p class="absolute bottom-0 left-7 max-w-[13rem] font-serif text-lg italic leading-6 text-muted">Models become useful when their evidence can be examined.</p>
+    </aside>
   </div>
 
-  <div class="grid border-y border-line bg-surface/70 lg:grid-cols-[minmax(0,1.2fr)_minmax(20rem,0.8fr)]">
-    <div class="p-6 sm:p-8 lg:p-10">
-      <p class="eyebrow mb-6">Primary objective</p>
-      <h1 class="max-w-4xl text-[clamp(2.25rem,5vw,5.25rem)] font-bold leading-[0.95] tracking-[-0.065em] text-ink">Building reliable ML systems from complex real-world data.</h1>
+  <div class="paper-surface grid border-y border-ink/25 lg:grid-cols-[minmax(0,1.25fr)_minmax(20rem,0.75fr)]">
+    <div class="p-6 sm:p-9 lg:p-12">
+      <p class="eyebrow mb-7">Primary inquiry</p>
+      <h1 class="zine-rule max-w-4xl pb-7 font-serif text-[clamp(2.5rem,5.2vw,5.5rem)] font-normal leading-[0.93] tracking-[-0.055em] text-ink">Building reliable ML systems from complex real-world data.</h1>
     </div>
-    <aside class="border-t border-line p-6 sm:p-8 lg:border-l lg:border-t-0 lg:p-10">
+    <aside class="border-t border-ink/20 p-6 sm:p-9 lg:border-l lg:border-t-0 lg:p-12">
       <p class="max-w-md text-base leading-7 text-muted">I care about models that are not only accurate, but also testable, explainable, and clearly communicated.</p>
       <div class="mt-7 flex flex-wrap gap-3">
         <Button href="#work">View Work</Button>
         <Button href="/cv.pdf" variant="secondary">Download CV</Button>
       </div>
-      <div class="mt-10 border-t border-line pt-5">
+      <div class="mt-10 border-t border-ink/20 pt-5">
         <p class="font-mono text-[0.62rem] leading-6 tracking-[0.08em] text-muted">APPLIED ML / GENAI EVALUATION / DATA ENGINEERING / SENSOR DATA / SIGNAL PROCESSING</p>
       </div>
     </aside>
   </div>
 
-  <div class="mt-5 grid grid-cols-[auto_1fr_auto_1fr_auto] items-center gap-4 font-mono text-[0.58rem] uppercase tracking-[0.14em] text-muted">
+  <div class="mt-6 grid grid-cols-[auto_1fr_auto_1fr_auto] items-center gap-4 font-mono text-[0.56rem] uppercase tracking-[0.16em] text-muted">
     <span>Input</span><span class="h-px bg-line"></span><span class="text-accent">Model + Evaluate</span><span class="h-px bg-line"></span><span>Explain</span>
   </div>
 </section>

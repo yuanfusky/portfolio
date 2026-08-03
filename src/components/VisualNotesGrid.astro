@@ -11,9 +11,9 @@ const notes = [
 
 <div class="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6">
   {notes.map(([label, theme], index) => (
-    <div class:list={['group relative aspect-[3/4] overflow-hidden border border-line bg-surface', `visual-${index + 1}`]}>
+    <div class:list={['paper-surface group relative aspect-[3/4] overflow-hidden border border-ink/20 shadow-[3px_4px_0_rgba(23,25,21,.07)] transition duration-300 hover:-translate-y-1', `visual-${index + 1}`]}>
       <div class="absolute inset-0 opacity-70 transition duration-500 group-hover:scale-105 group-hover:opacity-100"></div>
-      <div class="absolute inset-x-3 bottom-3 border-t border-ink/20 pt-2">
+      <div class="absolute inset-x-3 bottom-3 border-t border-ink/25 bg-paper/70 pt-2 backdrop-blur-[2px]">
         <p class="font-mono text-[0.55rem] uppercase tracking-[0.12em] text-ink/60">{label}</p>
         <p class="mt-1 text-xs font-medium">{theme}</p>
       </div>
@@ -22,10 +22,10 @@ const notes = [
 </div>
 
 <style>
-  .visual-1 > div:first-child { background: linear-gradient(145deg, transparent 45%, #6c9187 46% 49%, transparent 50%), linear-gradient(25deg, #ded8c8 30%, #f8f5eb 31%); }
-  .visual-2 > div:first-child { background: repeating-linear-gradient(90deg, #ece9df 0 12px, #c5d5cf 12px 13px), linear-gradient(#f8f5eb, #b8c9c2); }
-  .visual-3 > div:first-child { background: radial-gradient(circle at 35% 38%, #b76f45 0 6%, transparent 6.5%), radial-gradient(circle at 65% 55%, #256b62 0 4%, transparent 4.5%), #e7e2d6; }
-  .visual-4 > div:first-child { background: linear-gradient(120deg, transparent 0 34%, #809d95 35% 48%, transparent 49%), repeating-linear-gradient(0deg, #ece9df 0 19px, #d8dcd5 20px); }
-  .visual-5 > div:first-child { background: radial-gradient(ellipse at 50% 30%, transparent 0 25%, #9eb6ae 26% 27%, transparent 28% 37%, #9eb6ae 38% 39%, transparent 40%), #ede8dc; }
-  .visual-6 > div:first-child { background: linear-gradient(160deg, #e5dfd1 0 49%, #315f58 50% 66%, #d5c5b6 67%); }
+  .visual-1 > div:first-child { background: linear-gradient(145deg, transparent 46%, #242720 46.5% 48%, transparent 48.5%), linear-gradient(25deg, #d9d3c4 31%, #f8f5eb 31.5%); }
+  .visual-2 > div:first-child { background: repeating-linear-gradient(90deg, transparent 0 13px, rgba(23,25,21,.22) 13px 14px), linear-gradient(#f8f5eb, #d8d2c4); }
+  .visual-3 > div:first-child { background: radial-gradient(circle at 38% 38%, #2447f2 0 7%, transparent 7.5%), radial-gradient(circle at 65% 56%, #23251f 0 3%, transparent 3.5%), #e2ddcf; }
+  .visual-4 > div:first-child { background: linear-gradient(120deg, transparent 0 34%, #292b25 35% 46%, transparent 47%), repeating-linear-gradient(0deg, #eeeadd 0 20px, #cfc9bb 20px 21px); }
+  .visual-5 > div:first-child { background: radial-gradient(ellipse at 50% 30%, transparent 0 25%, rgba(23,25,21,.45) 26% 27%, transparent 28% 37%, rgba(23,25,21,.32) 38% 39%, transparent 40%), #e7e1d3; }
+  .visual-6 > div:first-child { background: linear-gradient(160deg, #e0dacc 0 49%, #2447f2 50% 59%, #cec7b8 60%); }
 </style>
