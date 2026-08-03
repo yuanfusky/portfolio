@@ -14,7 +14,7 @@ import Button from './Button.astro';
     </div>
   </div>
 
-  <div class="relative grid min-h-[34rem] gap-10 py-14 sm:py-20 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-center lg:py-24">
+  <div class="relative grid min-h-[34rem] gap-12 py-14 sm:py-20 lg:grid-cols-[minmax(0,1fr)_minmax(19rem,23rem)] lg:items-center lg:py-24">
     <div class="relative z-10">
       <p class="mb-7 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-muted">Jingyuan Ren / ML systems & evidence</p>
       <div aria-hidden="true" class="print-offset select-none font-serif text-[clamp(4.6rem,12.5vw,12.5rem)] leading-[0.68] tracking-[-0.085em] text-ink">
@@ -23,14 +23,23 @@ import Button from './Button.astro';
       <p class="mt-12 max-w-2xl text-sm leading-6 text-muted sm:text-base">Data Science & Information Engineering Master's Student<br class="hidden sm:block" /> at Linköping University</p>
     </div>
 
-    <aside class="relative min-h-56 border-l border-ink/25 pl-7 lg:min-h-80">
-      <div class="absolute left-7 top-2 h-28 w-20 -rotate-2 bg-accent"></div>
-      <div class="paper-surface absolute left-14 top-10 h-32 w-32 rotate-3 border border-ink/20 p-3 shadow-[6px_7px_0_rgba(23,25,21,.08)]">
-        <div class="h-full border border-dashed border-ink/25 p-3 font-mono text-[0.5rem] uppercase leading-4 tracking-[0.1em] text-muted">
-          evidence<br />measure<br />retrieve<br />estimate<br /><span class="text-accent">evaluate</span>
-        </div>
-      </div>
-      <p class="absolute bottom-0 left-7 max-w-[13rem] font-serif text-lg italic leading-6 text-muted">Models become useful when their evidence can be examined.</p>
+    <aside class="relative mx-auto w-full max-w-[19rem] sm:max-w-[22rem] lg:mx-0 lg:max-w-none" aria-label="Portrait of Jingyuan Ren">
+      <div class="absolute -left-3 top-[11%] h-[22%] w-[29%] -rotate-3 bg-accent" aria-hidden="true"></div>
+      <figure class="relative rotate-[1.25deg] border border-ink/25 bg-surface p-2 shadow-[9px_11px_0_rgba(23,25,21,.10)] transition duration-500 hover:rotate-0 hover:shadow-[13px_15px_0_rgba(36,71,242,.16)]">
+        <img
+          src="/jingyuan-zine-portrait.png"
+          alt="Graphite sketch and paper collage portrait of Jingyuan Ren"
+          width="971"
+          height="1619"
+          loading="eager"
+          fetchpriority="high"
+          class="block h-auto w-full"
+        />
+        <figcaption class="absolute -bottom-4 -left-4 -rotate-2 border border-ink/20 bg-paper px-3 py-2 font-mono text-[0.5rem] uppercase tracking-[0.14em] text-muted shadow-[3px_4px_0_rgba(23,25,21,.08)]">
+          Portrait study / 01
+        </figcaption>
+      </figure>
+      <p class="mt-9 max-w-[18rem] font-serif text-base italic leading-6 text-muted">Models become useful when their evidence can be examined.</p>
     </aside>
   </div>
 
