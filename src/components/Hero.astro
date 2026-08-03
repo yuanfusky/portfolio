@@ -23,9 +23,9 @@ import Button from './Button.astro';
       <p class="mt-12 max-w-2xl text-sm leading-6 text-muted sm:text-base">Data Science & Information Engineering Master's Student<br class="hidden sm:block" /> at Linköping University</p>
     </div>
 
-    <aside class="relative mx-auto w-full max-w-[19rem] sm:max-w-[22rem] lg:mx-0 lg:max-w-none" aria-label="Portrait of Jingyuan Ren">
-      <div class="absolute -left-3 top-[11%] h-[22%] w-[29%] -rotate-3 bg-accent" aria-hidden="true"></div>
-      <figure class="relative rotate-[1.25deg] border border-ink/25 bg-surface p-2 shadow-[9px_11px_0_rgba(23,25,21,.10)] transition duration-500 hover:rotate-0 hover:shadow-[13px_15px_0_rgba(36,71,242,.16)]">
+    <aside class="group relative mx-auto w-full max-w-[19rem] sm:max-w-[22rem] lg:mx-0 lg:max-w-none" aria-label="Portrait of Jingyuan Ren">
+      <div class="pointer-events-none absolute inset-0 border-2 border-accent opacity-0 transition duration-500 ease-out group-hover:translate-x-5 group-hover:translate-y-2 group-hover:opacity-100" aria-hidden="true"></div>
+      <figure class="relative z-10">
         <img
           src="/jingyuan-zine-portrait.png"
           alt="Graphite sketch and paper collage portrait of Jingyuan Ren"
@@ -35,11 +35,7 @@ import Button from './Button.astro';
           fetchpriority="high"
           class="block h-auto w-full"
         />
-        <figcaption class="absolute -bottom-4 -left-4 -rotate-2 border border-ink/20 bg-paper px-3 py-2 font-mono text-[0.5rem] uppercase tracking-[0.14em] text-muted shadow-[3px_4px_0_rgba(23,25,21,.08)]">
-          Portrait study / 01
-        </figcaption>
       </figure>
-      <p class="mt-9 max-w-[18rem] font-serif text-base italic leading-6 text-muted">Models become useful when their evidence can be examined.</p>
     </aside>
   </div>
 
