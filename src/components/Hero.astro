@@ -29,11 +29,11 @@ import Button from './Button.astro';
         <img
           src="/jingyuan-zine-portrait.png"
           alt="Graphite sketch and paper collage portrait of Jingyuan Ren"
-          width="971"
-          height="1619"
+          width="720"
+          height="720"
           loading="eager"
           fetchpriority="high"
-          class="block h-auto w-full"
+          class="portrait-sketch block h-auto w-full"
         />
       </figure>
     </aside>
@@ -60,3 +60,11 @@ import Button from './Button.astro';
     <span>Input</span><span class="h-px bg-line"></span><span class="text-accent">Model + Evaluate</span><span class="h-px bg-line"></span><span>Explain</span>
   </div>
 </section>
+
+<style>
+  .portrait-sketch {
+    -webkit-mask-image: radial-gradient(ellipse 78% 88% at 50% 48%, #000 62%, rgba(0, 0, 0, 0.92) 72%, transparent 100%);
+    mask-image: radial-gradient(ellipse 78% 88% at 50% 48%, #000 62%, rgba(0, 0, 0, 0.92) 72%, transparent 100%);
+    mix-blend-mode: multiply;
+  }
+</style>
