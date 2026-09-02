@@ -1,10 +1,5 @@
----
-import Button from './Button.astro';
----
-
 <section class="hero-playground page-shell" aria-labelledby="hero-title">
   <div class="hero-intro">
-    <p class="hero-kicker">Data Science and Information Engineering</p>
     <h1 id="hero-title" class="hero-name">
       <span class="hero-prompt" aria-hidden="true">&gt;</span>
       <span class="typing-track">
@@ -12,16 +7,20 @@ import Button from './Button.astro';
         <span class="hero-cursor" aria-hidden="true"></span>
       </span>
     </h1>
-    <p class="hero-role">Master's student at Linköping University</p>
-    <p class="hero-tagline">Building reliable ML systems from complex real-world data.</p>
-    <div class="hero-actions">
-      <Button href="#work">View Work</Button>
-      <Button href="/cv.pdf" variant="secondary">Download CV</Button>
+
+    <div class="identity-sequence">
+      <div class="typed-track"><p class="typed-line typed-discipline">Data Science and Information Engineering</p></div>
+      <div class="typed-track"><p class="typed-line typed-role">Master's student at Linköping University</p></div>
     </div>
+
+    <p class="hero-tagline">Building reliable ML systems from complex real-world data.</p>
   </div>
 
-  <div class="hero-keywords" aria-label="Areas of work">
-    <span>Applied ML</span><span>GenAI Evaluation</span><span>Data Engineering</span><span>Sensor Data</span>
+  <div class="hero-links" aria-label="Contact and profile links">
+    <button class="hero-link" type="button" title="Link coming soon">Email <span aria-hidden="true">↗</span></button>
+    <button class="hero-link" type="button" title="Link coming soon">GitHub <span aria-hidden="true">↗</span></button>
+    <button class="hero-link" type="button" title="Link coming soon">LinkedIn <span aria-hidden="true">↗</span></button>
+    <a class="hero-link" href="/cv.pdf">Download CV <span aria-hidden="true">↓</span></a>
   </div>
 
   <a class="hero-scroll" href="#work-with">Scroll to explore <span>↓</span></a>
@@ -44,34 +43,48 @@ import Button from './Button.astro';
     text-align: center;
   }
 
-  .hero-kicker,
-  .hero-role,
+  .typed-line,
   .hero-tagline,
-  .hero-keywords,
+  .hero-links,
   .hero-scroll { font-family: var(--font-mono); }
 
-  .hero-kicker { margin-bottom: 1.4rem; color: var(--color-accent); font-size: .64rem; letter-spacing: .1em; }
   .hero-name { display: flex; align-items: baseline; justify-content: center; color: #343638; font-family: var(--font-mono); font-size: clamp(3rem, 7.6vw, 6.6rem); font-weight: 650; line-height: 1; letter-spacing: -.065em; text-shadow: .035em 0 color-mix(in srgb, var(--color-accent) 18%, transparent); }
   .hero-prompt { margin-right: .26em; color: var(--color-accent); font-size: .48em; font-weight: 500; text-shadow: none; }
   .typing-track { position: relative; display: inline-block; width: 12ch; margin-bottom: -.22em; padding-bottom: .22em; overflow: visible; text-align: left; white-space: nowrap; }
-  .hero-name-text { display: block; clip-path: inset(0 100% -.24em 0); animation: type-name 1.35s steps(12, end) .28s forwards; }
-  .hero-cursor { position: absolute; top: .08em; left: 0; width: .065em; height: .8em; background: var(--color-accent); box-shadow: 0 0 .16em color-mix(in srgb, var(--color-accent) 45%, transparent); animation: cursor-travel 1.35s steps(12, end) .28s forwards, cursor-blink .72s step-end 1.7s infinite; }
+  .hero-name-text { display: block; clip-path: inset(0 100% -.24em 0); animation: type-name 1.2s steps(12, end) .25s forwards; }
+  .hero-cursor { position: absolute; top: .08em; left: 0; width: .065em; height: .8em; background: var(--color-accent); box-shadow: 0 0 .16em color-mix(in srgb, var(--color-accent) 45%, transparent); animation: cursor-travel 1.2s steps(12, end) .25s forwards, cursor-blink .5s step-end .25s 3, cursor-hide .01s linear 1.55s forwards; }
   @keyframes type-name { to { clip-path: inset(0 0 -.24em 0); } }
   @keyframes cursor-travel { to { transform: translateX(12ch); } }
   @keyframes cursor-blink { 50% { opacity: 0; } }
-  .hero-role { margin-top: 1.25rem; color: var(--color-ink); font-size: clamp(.75rem, 1.2vw, 1rem); }
-  .hero-tagline { max-width: 39rem; margin: 2.5rem auto 0; color: var(--color-ink); font-size: clamp(1rem, 1.55vw, 1.25rem); font-weight: 500; line-height: 1.5; }
-  .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .65rem; margin-top: 1.5rem; }
+  @keyframes cursor-hide { to { opacity: 0; } }
 
-  .hero-keywords { position: absolute; bottom: 4.25rem; left: 50%; z-index: 8; display: flex; transform: translateX(-50%); gap: .5rem; white-space: nowrap; }
-  .hero-keywords span { border: 1px solid var(--color-line); border-radius: 99px; background: rgba(255,251,246,.74); padding: .45rem .7rem; color: var(--color-muted); font-size: .52rem; }
+  .identity-sequence { margin-top: 1.55rem; }
+  .typed-track { width: min(40ch, 100%); min-height: 1.65rem; margin-inline: auto; text-align: left; }
+  .typed-line { width: 0; overflow: hidden; border-right: 2px solid transparent; padding-bottom: .12em; white-space: nowrap; font-size: clamp(.66rem, 1vw, .82rem); letter-spacing: .035em; }
+  .typed-discipline { color: var(--color-accent); animation: type-line 1.65s steps(40, end) 1.65s forwards, line-cursor .5s step-end 1.65s 4, line-cursor-hide .01s linear 3.38s forwards; }
+  .typed-role { color: var(--color-ink); animation: type-line 1.75s steps(40, end) 3.48s forwards, line-cursor .62s step-end 3.48s infinite; }
+  @keyframes type-line { to { width: 100%; } }
+  @keyframes line-cursor { 0%, 45% { border-right-color: var(--color-accent); } 46%, 100% { border-right-color: transparent; } }
+  @keyframes line-cursor-hide { to { border-right-color: transparent; } }
+
+  .hero-tagline { max-width: 39rem; margin: 2rem auto 0; color: var(--color-ink); font-size: clamp(1rem, 1.55vw, 1.25rem); font-weight: 500; line-height: 1.5; opacity: 0; animation: reveal-support .45s ease 5.3s forwards; }
+  @keyframes reveal-support { to { opacity: 1; transform: translateY(0); } }
+
+  .hero-links { position: absolute; bottom: 4.25rem; left: 50%; z-index: 8; display: flex; transform: translateX(-50%); gap: .55rem; white-space: nowrap; opacity: 0; animation: reveal-links .45s ease 5.5s forwards; }
+  .hero-link { display: inline-flex; align-items: center; gap: .55rem; border: 1px solid var(--color-line); border-radius: 999px; background: rgba(255,251,246,.82); padding: .6rem .82rem; color: var(--color-muted); font: inherit; font-size: .58rem; cursor: pointer; transition: color .22s ease, background .22s ease, border-color .22s ease, box-shadow .22s ease, transform .22s ease; }
+  .hero-link span { color: var(--color-accent); transition: color .22s ease, transform .22s ease; }
+  .hero-link:hover,
+  .hero-link:focus-visible { border-color: var(--color-accent); background: var(--color-accent); color: white; box-shadow: 0 9px 24px rgba(36, 71, 242, .2); transform: translateY(-3px); }
+  .hero-link:hover span,
+  .hero-link:focus-visible span { color: white; transform: translate(2px, -2px); }
+  @keyframes reveal-links { to { opacity: 1; } }
   .hero-scroll { position: absolute; bottom: 1.3rem; left: 50%; z-index: 8; transform: translateX(-50%); color: var(--color-muted); font-size: .55rem; text-decoration: none; }
   .hero-scroll span { color: var(--color-accent); }
 
   @media (max-width: 900px) {
     .hero-playground { min-height: auto; padding-bottom: 5rem; }
     .hero-intro { width: 100%; padding-top: 8rem; }
-    .hero-keywords { position: relative; bottom: auto; left: auto; flex-wrap: wrap; justify-content: center; margin-top: 1.5rem; transform: none; white-space: normal; }
+    .hero-links { position: relative; bottom: auto; left: auto; flex-wrap: wrap; justify-content: center; margin-top: 2rem; transform: none; white-space: normal; }
     .hero-scroll { display: none; }
   }
 
@@ -82,6 +95,9 @@ import Button from './Button.astro';
 
   @media (prefers-reduced-motion: reduce) {
     .hero-name-text { clip-path: none; animation: none; }
-    .hero-cursor { transform: translateX(12ch); animation: none; }
+    .hero-cursor { display: none; }
+    .typed-line { width: 100%; border-right-color: transparent; animation: none; }
+    .hero-tagline,
+    .hero-links { opacity: 1; animation: none; }
   }
 </style>
