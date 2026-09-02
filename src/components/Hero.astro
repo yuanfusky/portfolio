@@ -4,8 +4,14 @@ import Button from './Button.astro';
 
 <section class="hero-playground page-shell" aria-labelledby="hero-title">
   <div class="hero-intro">
-    <p class="hero-kicker">Data Science + Information Engineering</p>
-    <h1 id="hero-title" class="hero-name">Jingyuan Ren</h1>
+    <p class="hero-kicker">Data Science and Information Engineering</p>
+    <h1 id="hero-title" class="hero-name">
+      <span class="hero-prompt" aria-hidden="true">&gt;</span>
+      <span class="typing-track">
+        <span class="hero-name-text">Jingyuan Ren</span>
+        <span class="hero-cursor" aria-hidden="true"></span>
+      </span>
+    </h1>
     <p class="hero-role">Master's student at Linköping University</p>
     <p class="hero-tagline">Building reliable ML systems from complex real-world data.</p>
     <div class="hero-actions">
@@ -44,8 +50,15 @@ import Button from './Button.astro';
   .hero-keywords,
   .hero-scroll { font-family: var(--font-mono); }
 
-  .hero-kicker { margin-bottom: 1rem; color: var(--color-muted); font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; }
-  .hero-name { color: #343638; font-family: var(--font-hand); font-size: clamp(4.4rem, 9.5vw, 8.4rem); font-weight: 400; line-height: .9; letter-spacing: -.06em; }
+  .hero-kicker { margin-bottom: 1.4rem; color: var(--color-accent); font-size: .64rem; letter-spacing: .1em; }
+  .hero-name { display: flex; align-items: baseline; justify-content: center; color: #343638; font-family: "OCR A Std", "IBM Plex Mono", "SFMono-Regular", Consolas, monospace; font-size: clamp(3rem, 7.6vw, 6.6rem); font-weight: 700; line-height: .95; letter-spacing: -.055em; text-shadow: .035em 0 color-mix(in srgb, var(--color-accent) 18%, transparent); }
+  .hero-prompt { margin-right: .26em; color: var(--color-accent); font-size: .48em; font-weight: 500; text-shadow: none; }
+  .typing-track { position: relative; display: inline-block; width: 12ch; overflow: visible; text-align: left; white-space: nowrap; }
+  .hero-name-text { display: block; clip-path: inset(0 100% 0 0); animation: type-name 1.35s steps(12, end) .28s forwards; }
+  .hero-cursor { position: absolute; top: .08em; left: 0; width: .065em; height: .8em; background: var(--color-accent); box-shadow: 0 0 .16em color-mix(in srgb, var(--color-accent) 45%, transparent); animation: cursor-travel 1.35s steps(12, end) .28s forwards, cursor-blink .72s step-end 1.7s infinite; }
+  @keyframes type-name { to { clip-path: inset(0 0 0 0); } }
+  @keyframes cursor-travel { to { transform: translateX(12ch); } }
+  @keyframes cursor-blink { 50% { opacity: 0; } }
   .hero-role { margin-top: 1.25rem; color: var(--color-ink); font-size: clamp(.75rem, 1.2vw, 1rem); }
   .hero-tagline { max-width: 39rem; margin: 2.5rem auto 0; color: var(--color-ink); font-size: clamp(1rem, 1.55vw, 1.25rem); font-weight: 500; line-height: 1.5; }
   .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .65rem; margin-top: 1.5rem; }
@@ -64,6 +77,11 @@ import Button from './Button.astro';
 
   @media (max-width: 540px) {
     .hero-intro { padding-top: 9rem; }
-    .hero-name { font-size: clamp(3.9rem, 21vw, 6rem); }
+    .hero-name { font-size: clamp(2rem, 9vw, 2.5rem); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-name-text { clip-path: none; animation: none; }
+    .hero-cursor { transform: translateX(12ch); animation: none; }
   }
 </style>
