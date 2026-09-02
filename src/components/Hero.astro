@@ -3,18 +3,6 @@ import Button from './Button.astro';
 ---
 
 <section class="hero-playground page-shell" aria-labelledby="hero-title">
-  <div class="hero-canvas" aria-hidden="true"></div>
-
-  <a class="canvas-object canvas-signal" href="#work" aria-label="Explore selected projects">
-    <span class="canvas-label">projects <b>↘</b></span>
-  </a>
-  <a class="canvas-object canvas-folder" href="#background" aria-label="Jump to education and experience">
-    <span class="canvas-label">education <b>↘</b></span>
-  </a>
-  <a class="canvas-object canvas-paper" href="/about" aria-label="Read about Jingyuan Ren">
-    <span class="canvas-label">about <b>↗</b></span>
-  </a>
-
   <div class="hero-intro">
     <p class="hero-kicker">Data Science + Information Engineering</p>
     <h1 id="hero-title" class="hero-name">Jingyuan Ren</h1>
@@ -37,10 +25,6 @@ import Button from './Button.astro';
     <span>Applied ML</span><span>GenAI Evaluation</span><span>Data Engineering</span><span>Sensor Data</span>
   </div>
 
-  <nav class="canvas-mobile-nav" aria-label="Canvas shortcuts">
-    <a href="#work">Projects</a><a href="#background">Education</a><a href="/about">About</a>
-  </nav>
-
   <a class="hero-scroll" href="#work-with">Scroll to explore <span>↓</span></a>
 </section>
 
@@ -48,98 +32,8 @@ import Button from './Button.astro';
   .hero-playground {
     position: relative;
     isolation: isolate;
-    min-height: 100svh;
+    min-height: min(780px, calc(100svh - 1rem));
     overflow: hidden;
-  }
-
-  .hero-playground::after {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 2;
-    height: 24%;
-    background: linear-gradient(to bottom, transparent, var(--color-paper) 86%);
-    pointer-events: none;
-    content: "";
-  }
-
-  .hero-canvas {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    background-image: url('/jingyuan-portfolio-social.png');
-    background-position: center;
-    background-size: 100% 100%;
-    opacity: .56;
-    pointer-events: none;
-    mix-blend-mode: multiply;
-  }
-
-  .canvas-object {
-    position: absolute;
-    z-index: 4;
-    display: block;
-    overflow: visible;
-    outline: none;
-  }
-
-  .canvas-object::before {
-    position: absolute;
-    inset: 0;
-    background-image: url('/jingyuan-portfolio-social.png');
-    background-repeat: no-repeat;
-    filter: saturate(1.03);
-    pointer-events: none;
-    content: "";
-    transition: transform .42s cubic-bezier(.2,.75,.2,1), filter .42s ease;
-  }
-
-  .canvas-label {
-    position: absolute;
-    z-index: 2;
-    display: inline-flex;
-    align-items: center;
-    gap: .55rem;
-    border: 1px solid color-mix(in srgb, var(--color-accent) 30%, var(--color-line));
-    border-radius: 999px;
-    background: rgba(255, 250, 245, .94);
-    box-shadow: 0 10px 28px rgba(45, 44, 46, .1);
-    padding: .55rem .75rem;
-    color: var(--color-accent);
-    font-family: var(--font-mono);
-    font-size: .62rem;
-    letter-spacing: .08em;
-    opacity: 0;
-    transform: translateY(8px);
-    transition: opacity .28s ease, transform .35s ease;
-  }
-
-  .canvas-label b { font-size: .75rem; font-weight: 400; }
-  .canvas-object:hover .canvas-label,
-  .canvas-object:focus-visible .canvas-label { opacity: 1; transform: translateY(0); }
-  .canvas-object:focus-visible::after { position: absolute; inset: 3%; z-index: 3; border: 2px solid var(--color-accent); border-radius: 1rem; content: ""; }
-
-  .canvas-signal { top: 2%; left: 0; width: 32%; height: 58%; }
-  .canvas-signal::before { background-position: left top; background-size: 312.5% 172.42%; }
-  .canvas-signal .canvas-label { top: 52%; left: 12%; }
-  .canvas-signal:hover::before,
-  .canvas-signal:focus-visible::before { filter: drop-shadow(7px 10px 12px rgba(58, 52, 46, .14)); transform: translate(7px, -5px) rotate(.7deg); }
-
-  .canvas-folder { bottom: 0; left: 0; width: 29%; height: 48%; }
-  .canvas-folder::before { background-position: left bottom; background-size: 344.83% 208.33%; }
-  .canvas-folder .canvas-label { right: 8%; bottom: 32%; }
-  .canvas-folder:hover::before,
-  .canvas-folder:focus-visible::before { filter: drop-shadow(9px 14px 14px rgba(36, 71, 242, .18)); transform: translate(11px, -7px) rotate(-.9deg); }
-
-  .canvas-paper { top: 0; right: 0; width: 30%; height: 88%; }
-  .canvas-paper::before { background-position: right top; background-size: 333.33% 113.64%; }
-  .canvas-paper .canvas-label { right: 16%; bottom: 35%; }
-  .canvas-paper:hover::before,
-  .canvas-paper:focus-visible::before { filter: drop-shadow(-9px 13px 14px rgba(58, 52, 46, .14)); transform: translate(-8px, 6px) rotate(.6deg); }
-
-  .canvas-mobile-nav {
-    display: none;
   }
 
   .hero-intro {
@@ -183,14 +77,10 @@ import Button from './Button.astro';
   .hero-scroll span { color: var(--color-accent); }
 
   @media (max-width: 900px) {
-    .hero-playground { min-height: 100svh; padding-bottom: 4rem; }
-    .hero-canvas { background-position: center top; background-size: auto 58%; opacity: .48; }
-    .canvas-object { display: none; }
+    .hero-playground { min-height: auto; padding-bottom: 5rem; }
     .hero-intro { width: 100%; padding-top: 8rem; }
     .hero-portrait { position: relative; right: auto; bottom: auto; width: 9rem; margin: 2rem auto 0; }
     .hero-keywords { position: relative; bottom: auto; left: auto; flex-wrap: wrap; justify-content: center; margin-top: 1.5rem; transform: none; white-space: normal; }
-    .canvas-mobile-nav { position: relative; z-index: 8; display: flex; justify-content: center; gap: .5rem; margin-top: 1rem; }
-    .canvas-mobile-nav a { border-bottom: 1px solid var(--color-line); padding: .45rem .3rem; color: var(--color-accent); font-family: var(--font-mono); font-size: .58rem; text-decoration: none; }
     .hero-scroll { display: none; }
   }
 
