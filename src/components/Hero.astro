@@ -7,18 +7,11 @@ import Button from './Button.astro';
     <p class="hero-kicker">Data Science + Information Engineering</p>
     <h1 id="hero-title" class="hero-name">Jingyuan Ren</h1>
     <p class="hero-role">Master's student at Linköping University</p>
-    <p class="hero-definition"><span>reliable ML systems</span> <em>noun</em></p>
     <p class="hero-tagline">Building reliable ML systems from complex real-world data.</p>
-    <p class="hero-subtext">I care about models that are not only accurate, but also testable, explainable, and clearly communicated.</p>
     <div class="hero-actions">
       <Button href="#work">View Work</Button>
       <Button href="/cv.pdf" variant="secondary">Download CV</Button>
     </div>
-  </div>
-
-  <div class="hero-portrait" aria-label="Portrait of Jingyuan Ren">
-    <img src="/jingyuan-zine-portrait-v2.png" alt="Graphite sketch portrait of Jingyuan Ren" width="720" height="720" loading="eager" fetchpriority="high" />
-    <span aria-hidden="true">JR / 2026</span>
   </div>
 
   <div class="hero-keywords" aria-label="Areas of work">
@@ -47,29 +40,15 @@ import Button from './Button.astro';
 
   .hero-kicker,
   .hero-role,
-  .hero-definition,
   .hero-tagline,
-  .hero-subtext,
   .hero-keywords,
   .hero-scroll { font-family: var(--font-mono); }
 
   .hero-kicker { margin-bottom: 1rem; color: var(--color-muted); font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; }
   .hero-name { color: #343638; font-family: var(--font-hand); font-size: clamp(4.4rem, 9.5vw, 8.4rem); font-weight: 400; line-height: .9; letter-spacing: -.06em; }
   .hero-role { margin-top: 1.25rem; color: var(--color-ink); font-size: clamp(.75rem, 1.2vw, 1rem); }
-  .hero-definition { margin-top: .5rem; color: var(--color-muted); font-size: .72rem; }
-  .hero-definition span { color: var(--color-accent); }
-  .hero-definition em { margin-left: .45rem; font-family: var(--font-serif); }
-  .hero-tagline { max-width: 39rem; margin: 2.25rem auto 0; color: var(--color-ink); font-size: clamp(1rem, 1.55vw, 1.25rem); font-weight: 500; line-height: 1.5; }
-  .hero-subtext { max-width: 35rem; margin: .9rem auto 0; color: var(--color-muted); font-size: .78rem; line-height: 1.75; }
+  .hero-tagline { max-width: 39rem; margin: 2.5rem auto 0; color: var(--color-ink); font-size: clamp(1rem, 1.55vw, 1.25rem); font-weight: 500; line-height: 1.5; }
   .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .65rem; margin-top: 1.5rem; }
-
-  .hero-portrait { position: absolute; z-index: 4; transition: transform .35s ease, box-shadow .35s ease; }
-  .hero-portrait:hover { transform: translateY(-5px) rotate(0deg); }
-
-  .hero-portrait { right: 13%; bottom: 8%; width: 9.5rem; transform: rotate(4deg); }
-  .hero-portrait img { display: block; width: 100%; mix-blend-mode: multiply; transition: filter .35s ease; -webkit-mask-image: radial-gradient(circle, #000 55%, transparent 76%); mask-image: radial-gradient(circle, #000 55%, transparent 76%); }
-  .hero-portrait:hover img { filter: drop-shadow(14px 3px 0 rgba(36, 71, 242, .88)); }
-  .hero-portrait span { position: absolute; right: -.4rem; bottom: .35rem; border-radius: 99px; background: #f3eee8; padding: .35rem .55rem; color: var(--color-muted); font-family: var(--font-mono); font-size: .46rem; }
 
   .hero-keywords { position: absolute; bottom: 4.25rem; left: 50%; z-index: 8; display: flex; transform: translateX(-50%); gap: .5rem; white-space: nowrap; }
   .hero-keywords span { border: 1px solid var(--color-line); border-radius: 99px; background: rgba(255,251,246,.74); padding: .45rem .7rem; color: var(--color-muted); font-size: .52rem; }
@@ -79,7 +58,6 @@ import Button from './Button.astro';
   @media (max-width: 900px) {
     .hero-playground { min-height: auto; padding-bottom: 5rem; }
     .hero-intro { width: 100%; padding-top: 8rem; }
-    .hero-portrait { position: relative; right: auto; bottom: auto; width: 9rem; margin: 2rem auto 0; }
     .hero-keywords { position: relative; bottom: auto; left: auto; flex-wrap: wrap; justify-content: center; margin-top: 1.5rem; transform: none; white-space: normal; }
     .hero-scroll { display: none; }
   }

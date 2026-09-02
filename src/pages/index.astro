@@ -5,7 +5,6 @@ import Hero from '../components/Hero.astro';
 import SectionTitle from '../components/SectionTitle.astro';
 import WorkWithCard from '../components/WorkWithCard.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import ThinkingCard from '../components/ThinkingCard.astro';
 import EducationItem from '../components/EducationItem.astro';
 import ExperienceItem from '../components/ExperienceItem.astro';
 import VisualNotesGrid from '../components/VisualNotesGrid.astro';
@@ -21,12 +20,6 @@ const workAreas = [
   { title: 'Spatiotemporal / Structured Data', items: ['Forecasting', 'Model selection', 'Evaluation design'] },
 ];
 
-const thinking = [
-  { title: 'Model uncertainty', text: 'Working with noisy measurements, probabilistic models, Bayesian learning, and sensor fusion.' },
-  { title: 'Evaluate systems', text: 'Designing evaluations for RAG, ML models, synthetic data, and retrieval quality.' },
-  { title: 'Build workflows', text: 'Creating reproducible pipelines for preprocessing, modelling, validation, and reporting.' },
-  { title: 'Communicate clearly', text: 'Explaining complex technical systems through structured writing, visual design, and data storytelling.' },
-];
 ---
 
 <BaseLayout>
@@ -43,7 +36,7 @@ const thinking = [
 
   <section class="section-block" id="work">
     <div class="page-shell">
-      <SectionTitle index="02 / Systems" title="Selected ML & Data Systems Work" intro="Academic, competition, and research-oriented work—presented as it is today, with a clear path toward deeper case studies." />
+      <SectionTitle index="02 / Systems" title="Selected ML & Data Systems Work" />
       <div class="space-y-3">
         {projects.map((project, index) => <ProjectCard project={project} index={index} />)}
       </div>
@@ -51,18 +44,9 @@ const thinking = [
     </div>
   </section>
 
-  <section class="section-block" id="approach">
-    <div class="page-shell">
-      <SectionTitle index="03 / Approach" title="How I Think" intro="A practical loop for technical work: understand uncertainty, build the workflow, evaluate the system, and communicate the result." />
-      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {thinking.map((item, index) => <ThinkingCard {...item} index={String(index + 1).padStart(2, '0')} />)}
-      </div>
-    </div>
-  </section>
-
   <section class="section-block" id="background">
     <div class="page-shell">
-      <SectionTitle index="04 / Background" title="Education & Experience" intro="A technical path grounded in information engineering, expanded through data science, and sharpened by communication practice." />
+      <SectionTitle index="03 / Background" title="Education & Experience" intro="A technical path grounded in information engineering, expanded through data science, and sharpened by communication practice." />
       <div class="grid gap-12 lg:grid-cols-[minmax(0,1.35fr)_minmax(20rem,0.65fr)]">
         <div>
           <EducationItem school="Linköping University" degree="MSc, Data Science and Information Engineering" location="Linköping, Sweden" date="Expected 2027" detail="Relevant coursework: Machine Learning, Bayesian Learning, Sensor Fusion, Detection & Estimation of Signals, Multidimensional Signal Analysis, NLP, and Data Mining." />
@@ -95,29 +79,10 @@ const thinking = [
 
   <section class="section-block" id="visual-notes">
     <div class="page-shell">
-      <SectionTitle index="05 / Secondary lens" title="Visual Notes" intro="Before data science, I trained in communication and documentary storytelling. That background still shapes how I approach technical work: I care about structure, clarity, and how complex information is perceived." />
+      <SectionTitle index="04 / Secondary lens" title="Visual Notes" intro="Before data science, I trained in communication and documentary storytelling. That background still shapes how I approach technical work: I care about structure, clarity, and how complex information is perceived." />
       <VisualNotesGrid />
       <div class="mt-8 flex flex-wrap gap-5"><Button href="#" variant="text">Selected visual work</Button><Button href="#" variant="text">Writing & visual notes</Button></div>
     </div>
   </section>
 
-  <section class="section-block" id="contact">
-    <div class="page-shell">
-      <div class="relative overflow-hidden rounded-[2rem] border border-line bg-surface p-8 sm:p-12 lg:p-16">
-        <div class="absolute -right-12 -top-12 size-40 rounded-full bg-accent/8"></div>
-        <p class="font-mono text-xs text-accent">06 / Say hello ☺︎</p>
-        <h2 class="mt-7 max-w-3xl font-mono text-[clamp(1.8rem,4.5vw,4rem)] font-semibold leading-[1.08] tracking-[-0.06em] text-ink">Let’s build reliable systems together.</h2>
-        <span class="mt-7 inline-flex rounded-full bg-accent px-4 py-2 font-mono text-[0.58rem] text-white">Available for MLE / AI / Data roles</span>
-        <div class="mt-10 grid gap-8 border-t border-line pt-8 lg:grid-cols-[1fr_auto] lg:items-end">
-        <p class="max-w-2xl font-mono text-sm leading-7 text-muted">I’m preparing for MLE, AI Engineer, and Data Engineer roles. I’d be glad to discuss the work, the methods, or what I’m building next.</p>
-        <div class="flex flex-wrap gap-3">
-          <Button href="mailto:hello@example.com">Email me</Button>
-          <Button href="https://github.com/" variant="secondary" external>GitHub</Button>
-          <Button href="https://www.linkedin.com/" variant="secondary" external>LinkedIn</Button>
-          <Button href="/cv.pdf" variant="secondary">CV PDF</Button>
-        </div>
-        </div>
-      </div>
-    </div>
-  </section>
 </BaseLayout>
