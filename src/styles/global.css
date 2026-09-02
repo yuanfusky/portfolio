@@ -1,3 +1,4 @@
+@import "@fontsource-variable/fira-code";
 @import "tailwindcss";
 
 @theme {
@@ -10,10 +11,9 @@
   --color-accent-soft: #dfe3fa;
   --color-signal: #425a4b;
   --color-warm: #a76546;
-  --font-sans: "Helvetica Neue", Arial, sans-serif;
-  --font-serif: "Iowan Old Style", "Baskerville", "Times New Roman", serif;
-  --font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
-  --font-hand: "Snell Roundhand", "Segoe Script", "Bradley Hand", cursive;
+  --font-sans: "Fira Code Variable", "Fira Code", ui-monospace, monospace;
+  --font-serif: "Fira Code Variable", "Fira Code", ui-monospace, monospace;
+  --font-mono: "Fira Code Variable", "Fira Code", ui-monospace, monospace;
 }
 
 :root {
@@ -32,6 +32,7 @@ body {
   background: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-mono);
+  font-feature-settings: "calt" 1, "liga" 1;
   -webkit-font-smoothing: antialiased;
 }
 

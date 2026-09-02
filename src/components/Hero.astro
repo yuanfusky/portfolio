@@ -51,12 +51,12 @@ import Button from './Button.astro';
   .hero-scroll { font-family: var(--font-mono); }
 
   .hero-kicker { margin-bottom: 1.4rem; color: var(--color-accent); font-size: .64rem; letter-spacing: .1em; }
-  .hero-name { display: flex; align-items: baseline; justify-content: center; color: #343638; font-family: "OCR A Std", "IBM Plex Mono", "SFMono-Regular", Consolas, monospace; font-size: clamp(3rem, 7.6vw, 6.6rem); font-weight: 700; line-height: .95; letter-spacing: -.055em; text-shadow: .035em 0 color-mix(in srgb, var(--color-accent) 18%, transparent); }
+  .hero-name { display: flex; align-items: baseline; justify-content: center; color: #343638; font-family: var(--font-mono); font-size: clamp(3rem, 7.6vw, 6.6rem); font-weight: 650; line-height: 1; letter-spacing: -.065em; text-shadow: .035em 0 color-mix(in srgb, var(--color-accent) 18%, transparent); }
   .hero-prompt { margin-right: .26em; color: var(--color-accent); font-size: .48em; font-weight: 500; text-shadow: none; }
-  .typing-track { position: relative; display: inline-block; width: 12ch; overflow: visible; text-align: left; white-space: nowrap; }
-  .hero-name-text { display: block; clip-path: inset(0 100% 0 0); animation: type-name 1.35s steps(12, end) .28s forwards; }
+  .typing-track { position: relative; display: inline-block; width: 12ch; margin-bottom: -.22em; padding-bottom: .22em; overflow: visible; text-align: left; white-space: nowrap; }
+  .hero-name-text { display: block; clip-path: inset(0 100% -.24em 0); animation: type-name 1.35s steps(12, end) .28s forwards; }
   .hero-cursor { position: absolute; top: .08em; left: 0; width: .065em; height: .8em; background: var(--color-accent); box-shadow: 0 0 .16em color-mix(in srgb, var(--color-accent) 45%, transparent); animation: cursor-travel 1.35s steps(12, end) .28s forwards, cursor-blink .72s step-end 1.7s infinite; }
-  @keyframes type-name { to { clip-path: inset(0 0 0 0); } }
+  @keyframes type-name { to { clip-path: inset(0 0 -.24em 0); } }
   @keyframes cursor-travel { to { transform: translateX(12ch); } }
   @keyframes cursor-blink { 50% { opacity: 0; } }
   .hero-role { margin-top: 1.25rem; color: var(--color-ink); font-size: clamp(.75rem, 1.2vw, 1rem); }
