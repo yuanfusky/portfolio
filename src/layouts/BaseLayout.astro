@@ -6,14 +6,17 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title?: string;
   description?: string;
+  socialImage?: string | null;
 }
 
 const {
   title = 'Jingyuan Ren — ML, AI & Data Engineering',
   description = 'Building reliable ML systems from complex real-world data. Portfolio of Jingyuan Ren.',
+  socialImage = '/jingyuan-portfolio-social.png',
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const resolvedSocialImage = socialImage ? new URL(socialImage, Astro.site) : null;
 ---
 
 <!doctype html>
@@ -29,9 +32,12 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta name="twitter:card" content="summary" />
+    {resolvedSocialImage && <meta property="og:image" content={resolvedSocialImage} />}
+    {resolvedSocialImage && <meta property="og:image:alt" content="Jingyuan Ren portfolio — technical editorial collage" />}
+    <meta name="twitter:card" content={resolvedSocialImage ? 'summary_large_image' : 'summary'} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    {resolvedSocialImage && <meta name="twitter:image" content={resolvedSocialImage} />}
     <title>{title}</title>
   </head>
   <body>

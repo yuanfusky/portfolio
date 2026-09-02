@@ -8,53 +8,94 @@ interface Props {
 }
 const { project, index } = Astro.props;
 const { data } = project;
+const visualLabels = ['RAG', 'SYN', 'FUSE', 'EVAL'];
 ---
 
-<article class="group relative overflow-hidden border-b border-ink/25 bg-transparent transition duration-300 hover:bg-surface/60">
-  <a class="absolute inset-0 z-20" href={`/projects/${data.slug}/`} aria-label={`Read ${data.title}`}></a>
-  <div class="absolute bottom-0 left-0 top-0 w-2 origin-bottom scale-y-0 bg-accent transition duration-300 group-hover:scale-y-100"></div>
+<article class="project-row group">
+  <a class="project-hit" href={`/projects/${data.slug}/`} aria-label={`Read ${data.title}`}></a>
+  <div class:list={['project-stamp', `stamp-${(index % 4) + 1}`]} aria-hidden="true">
+    <span>{visualLabels[index % visualLabels.length]}</span>
+    <small>0{index + 1}</small>
+  </div>
 
-  <div class="relative z-10 grid gap-7 py-11 transition duration-300 group-hover:pl-5 md:py-14 lg:grid-cols-[5.5rem_minmax(0,1fr)_14rem] lg:items-start">
-    <div class="flex items-center justify-between lg:block">
-      <span class="font-serif text-5xl italic leading-none tracking-[-0.05em] text-accent">{String(index + 1).padStart(2, '0')}</span>
-      <span class="font-mono text-[0.58rem] uppercase tracking-[0.12em] text-muted lg:hidden">{data.domain}</span>
+  <div class="project-copy">
+    <div class="mb-3 flex flex-wrap gap-2">
+      <Tag label={data.status} />
+      <Tag label={data.domain} />
     </div>
+    <h3>{data.shortTitle}</h3>
+    <p>{data.oneLineProblem}</p>
+    <div class="project-tech">{data.methods.slice(0, 3).join(' · ')} <span>/</span> {data.tools.join(' · ')}</div>
+  </div>
 
-    <div>
-      <div class="mb-5 flex flex-wrap gap-2">
-        <Tag label={data.status} />
-        <Tag label={data.domain} />
+  <div class="project-side">
+    {data.highlightValue ? (
+      <div class="project-highlight">
+        <strong>{data.highlightValue}</strong>
+        <span>{data.highlightLabel}</span>
       </div>
-      <h3 class="max-w-5xl font-serif text-3xl font-normal leading-[1.02] tracking-[-0.05em] transition duration-300 group-hover:text-accent sm:text-4xl lg:text-[3.35rem]">{data.title}</h3>
-      <p class="mt-5 max-w-3xl text-sm leading-7 text-muted">{data.oneLineProblem}</p>
-
-      <div class="mt-8 grid gap-5 border-t border-line pt-5 text-xs sm:grid-cols-3">
-        <div>
-          <p class="eyebrow mb-2">Data</p>
-          <p class="leading-5 text-muted">{data.dataType}</p>
-        </div>
-        <div>
-          <p class="eyebrow mb-2">Methods</p>
-          <p class="leading-5 text-muted">{data.methods.slice(0, 3).join(' · ')}</p>
-        </div>
-        <div>
-          <p class="eyebrow mb-2">Tools</p>
-          <p class="leading-5 text-muted">{data.tools.join(' · ')}</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="flex items-end justify-between border-l border-ink/25 pl-6 lg:min-h-60 lg:flex-col lg:items-stretch">
-      {data.highlightValue ? (
-        <div>
-          <p class="font-serif text-4xl italic tracking-[-0.06em] text-ink transition group-hover:text-accent lg:text-5xl">{data.highlightValue}</p>
-          <p class="mt-2 font-mono text-[0.58rem] uppercase leading-5 tracking-[0.12em] text-muted">{data.highlightLabel}</p>
-        </div>
-      ) : <span></span>}
-      <div class="flex items-center justify-end gap-3 text-accent">
-        <span class="font-mono text-[0.6rem] uppercase tracking-[0.12em] opacity-0 transition group-hover:opacity-100">Open case study</span>
-        <span class="text-5xl font-light leading-none transition duration-300 group-hover:translate-x-2">→</span>
-      </div>
-    </div>
+    ) : <span></span>}
+    <span class="project-open">open study ↗</span>
   </div>
 </article>
+
+<style>
+  .project-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: 5.75rem minmax(0, 1fr) 8.5rem;
+    gap: 1.35rem;
+    align-items: center;
+    min-height: 8.75rem;
+    padding: 1.1rem;
+    border: 1px solid var(--color-line);
+    border-radius: 1.15rem;
+    background: rgba(252,247,242,.68);
+    transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+  }
+  .project-row:hover {
+    z-index: 2;
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--color-accent) 28%, var(--color-line));
+    box-shadow: 0 16px 36px rgba(67,58,50,.09);
+  }
+  .project-hit { position: absolute; inset: 0; z-index: 10; border-radius: inherit; }
+  .project-stamp {
+    position: relative;
+    display: grid;
+    aspect-ratio: 1;
+    place-items: center;
+    overflow: hidden;
+    border-radius: .85rem;
+    color: white;
+    font-family: var(--font-mono);
+  }
+  .project-stamp::before,
+  .project-stamp::after { position: absolute; content: ""; transition: transform .4s ease; }
+  .project-stamp::before { width: 4rem; height: 4rem; border: 1px solid rgba(255,255,255,.7); border-radius: 50%; }
+  .project-stamp::after { width: 1px; height: 120%; background: rgba(255,255,255,.55); transform: rotate(32deg); }
+  .project-row:hover .project-stamp::before { transform: scale(1.16); }
+  .project-row:hover .project-stamp::after { transform: rotate(48deg); }
+  .project-stamp span { position: relative; z-index: 1; font-size: .76rem; font-weight: 600; letter-spacing: .08em; }
+  .project-stamp small { position: absolute; right: .5rem; bottom: .4rem; z-index: 1; font-size: .45rem; opacity: .72; }
+  .stamp-1 { background: #2447f2; }
+  .stamp-2 { background: linear-gradient(145deg, #ff906d, #f15e43); }
+  .stamp-3 { background: linear-gradient(145deg, #679f91, #3f6c62); }
+  .stamp-4 { background: linear-gradient(145deg, #9c8fc8, #66558f); }
+  .project-copy h3 { color: var(--color-ink); font-size: clamp(1rem, 1.5vw, 1.18rem); font-weight: 600; letter-spacing: -.035em; }
+  .project-copy > p { max-width: 48rem; margin-top: .55rem; color: var(--color-muted); font-size: .72rem; line-height: 1.65; }
+  .project-tech { margin-top: .7rem; color: #96908a; font-size: .52rem; line-height: 1.6; }
+  .project-tech span { color: var(--color-accent); }
+  .project-side { align-self: stretch; display: flex; flex-direction: column; align-items: flex-end; justify-content: space-between; padding: .3rem; text-align: right; }
+  .project-highlight strong { display: block; color: var(--color-accent); font-size: 1.25rem; }
+  .project-highlight span { display: block; max-width: 8rem; margin-top: .25rem; color: var(--color-muted); font-size: .47rem; line-height: 1.4; }
+  .project-open { color: var(--color-accent); font-size: .55rem; opacity: 0; transform: translateX(-.4rem); transition: opacity .25s ease, transform .25s ease; }
+  .project-row:hover .project-open { opacity: 1; transform: translateX(0); }
+
+  @media (max-width: 680px) {
+    .project-row { grid-template-columns: 4rem 1fr; gap: 1rem; padding: .9rem; }
+    .project-side { grid-column: 2; align-self: auto; flex-direction: row; align-items: end; }
+    .project-stamp { align-self: start; }
+    .project-open { opacity: 1; }
+  }
+</style>

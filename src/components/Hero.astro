@@ -2,69 +2,152 @@
 import Button from './Button.astro';
 ---
 
-<section class="page-shell relative overflow-hidden pb-24 pt-7 sm:pb-28 sm:pt-10 lg:min-h-[calc(100vh-4.5rem)]">
-  <div class="relative border-y border-ink/25 px-1 py-4">
-    <div class="flex flex-wrap items-center justify-between gap-3">
-      <span class="font-mono text-[0.58rem] uppercase tracking-[0.16em] text-muted">Technical folio / issue 01 / 2026</span>
-      <div class="flex items-center gap-5 font-mono text-[0.58rem] uppercase tracking-[0.14em] text-muted">
-        <span>Linköping / SE</span>
-        <span class="hidden sm:inline">UTC+02</span>
-        <span class="bg-accent px-2 py-1 text-white">Open to roles</span>
-      </div>
+<section class="hero-playground page-shell" aria-labelledby="hero-title">
+  <div class="hero-intro">
+    <p class="hero-kicker">Data Science + Information Engineering</p>
+    <h1 id="hero-title" class="hero-name">Jingyuan Ren</h1>
+    <p class="hero-role">Master's student at Linköping University</p>
+    <p class="hero-definition"><span>reliable ML systems</span> <em>noun</em></p>
+    <p class="hero-tagline">Building reliable ML systems from complex real-world data.</p>
+    <p class="hero-subtext">I care about models that are not only accurate, but also testable, explainable, and clearly communicated.</p>
+    <div class="hero-actions">
+      <Button href="#work">View Work</Button>
+      <Button href="/cv.pdf" variant="secondary">Download CV</Button>
     </div>
   </div>
 
-  <div class="relative grid min-h-[34rem] gap-12 py-14 sm:py-20 lg:grid-cols-[minmax(0,1fr)_minmax(19rem,23rem)] lg:items-center lg:py-24">
-    <div class="relative z-10">
-      <p class="mb-7 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-muted">Jingyuan Ren / ML systems & evidence</p>
-      <div aria-hidden="true" class="print-offset select-none font-serif text-[clamp(4.6rem,12.5vw,12.5rem)] leading-[0.68] tracking-[-0.085em] text-ink">
-        Jingyuan<br /><span class="italic">Ren</span><span class="text-accent">.</span>
-      </div>
-      <p class="mt-12 max-w-2xl text-sm leading-6 text-muted sm:text-base">Data Science & Information Engineering Master's Student<br class="hidden sm:block" /> at Linköping University</p>
-    </div>
-
-    <aside class="group relative mx-auto w-full max-w-[19rem] sm:max-w-[22rem] lg:mx-0 lg:max-w-none" aria-label="Portrait of Jingyuan Ren">
-      <div class="pointer-events-none absolute inset-0 border-2 border-accent opacity-0 transition duration-500 ease-out group-hover:translate-x-5 group-hover:translate-y-2 group-hover:opacity-100" aria-hidden="true"></div>
-      <figure class="relative z-10">
-        <img
-          src="/jingyuan-zine-portrait-v2.png"
-          alt="Graphite sketch and paper collage portrait of Jingyuan Ren"
-          width="720"
-          height="720"
-          loading="eager"
-          fetchpriority="high"
-          class="portrait-sketch block h-auto w-full"
-        />
-      </figure>
-    </aside>
+  <div class="hero-artifact artifact-note" aria-hidden="true">
+    <span>experiment_04</span>
+    <strong>evaluate<br />before<br />deploy</strong>
+    <i></i>
   </div>
 
-  <div class="paper-surface grid border-y border-ink/25 lg:grid-cols-[minmax(0,1.25fr)_minmax(20rem,0.75fr)]">
-    <div class="p-6 sm:p-9 lg:p-12">
-      <p class="eyebrow mb-7">Primary inquiry</p>
-      <h1 class="zine-rule max-w-4xl pb-7 font-serif text-[clamp(2.5rem,5.2vw,5.5rem)] font-normal leading-[0.93] tracking-[-0.055em] text-ink">Building reliable ML systems from complex real-world data.</h1>
-    </div>
-    <aside class="border-t border-ink/20 p-6 sm:p-9 lg:border-l lg:border-t-0 lg:p-12">
-      <p class="max-w-md text-base leading-7 text-muted">I care about models that are not only accurate, but also testable, explainable, and clearly communicated.</p>
-      <div class="mt-7 flex flex-wrap gap-3">
-        <Button href="#work">View Work</Button>
-        <Button href="/cv.pdf" variant="secondary">Download CV</Button>
-      </div>
-      <div class="mt-10 border-t border-ink/20 pt-5">
-        <p class="font-mono text-[0.62rem] leading-6 tracking-[0.08em] text-muted">APPLIED ML / GENAI EVALUATION / DATA ENGINEERING / SENSOR DATA / SIGNAL PROCESSING</p>
-      </div>
-    </aside>
+  <div class="hero-artifact artifact-terminal" aria-hidden="true">
+    <div class="terminal-bar"><span></span><span></span><span></span></div>
+    <code>&gt; retrieve(context)<br /><b>0.814 accuracy</b><br />&gt; inspect(failure)</code>
   </div>
 
-  <div class="mt-6 grid grid-cols-[auto_1fr_auto_1fr_auto] items-center gap-4 font-mono text-[0.56rem] uppercase tracking-[0.16em] text-muted">
-    <span>Input</span><span class="h-px bg-line"></span><span class="text-accent">Model + Evaluate</span><span class="h-px bg-line"></span><span>Explain</span>
+  <div class="hero-artifact artifact-signal" aria-hidden="true">
+    <span>signal / noise</span>
+    <div class="signal-line"></div>
+    <small>estimate → filter → explain</small>
   </div>
+
+  <div class="hero-artifact artifact-folder" aria-hidden="true">
+    <span>selected_work</span>
+    <small>04 studies</small>
+  </div>
+
+  <div class="hero-portrait" aria-label="Portrait of Jingyuan Ren">
+    <img src="/jingyuan-zine-portrait-v2.png" alt="Graphite sketch portrait of Jingyuan Ren" width="720" height="720" loading="eager" fetchpriority="high" />
+    <span aria-hidden="true">JR / 2026</span>
+  </div>
+
+  <div class="hero-keywords" aria-label="Areas of work">
+    <span>Applied ML</span><span>GenAI Evaluation</span><span>Data Engineering</span><span>Sensor Data</span>
+  </div>
+
+  <a class="hero-scroll" href="#work-with">Scroll to explore <span>↓</span></a>
 </section>
 
 <style>
-  .portrait-sketch {
-    -webkit-mask-image: radial-gradient(ellipse 78% 88% at 50% 48%, #000 62%, rgba(0, 0, 0, 0.92) 72%, transparent 100%);
-    mask-image: radial-gradient(ellipse 78% 88% at 50% 48%, #000 62%, rgba(0, 0, 0, 0.92) 72%, transparent 100%);
-    mix-blend-mode: multiply;
+  .hero-playground {
+    position: relative;
+    min-height: min(860px, calc(100svh - 2rem));
+    overflow: hidden;
+  }
+
+  .hero-intro {
+    position: relative;
+    z-index: 10;
+    width: min(42rem, 72vw);
+    margin: 0 auto;
+    padding-top: clamp(10rem, 23vh, 14rem);
+    text-align: center;
+  }
+
+  .hero-kicker,
+  .hero-role,
+  .hero-definition,
+  .hero-tagline,
+  .hero-subtext,
+  .hero-keywords,
+  .hero-scroll,
+  .hero-artifact { font-family: var(--font-mono); }
+
+  .hero-kicker { margin-bottom: 1rem; color: var(--color-muted); font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; }
+  .hero-name { color: #343638; font-family: var(--font-hand); font-size: clamp(4.4rem, 9.5vw, 8.4rem); font-weight: 400; line-height: .9; letter-spacing: -.06em; }
+  .hero-role { margin-top: 1.25rem; color: var(--color-ink); font-size: clamp(.75rem, 1.2vw, 1rem); }
+  .hero-definition { margin-top: .5rem; color: var(--color-muted); font-size: .72rem; }
+  .hero-definition span { color: var(--color-accent); }
+  .hero-definition em { margin-left: .45rem; font-family: var(--font-serif); }
+  .hero-tagline { max-width: 39rem; margin: 2.25rem auto 0; color: var(--color-ink); font-size: clamp(1rem, 1.55vw, 1.25rem); font-weight: 500; line-height: 1.5; }
+  .hero-subtext { max-width: 35rem; margin: .9rem auto 0; color: var(--color-muted); font-size: .78rem; line-height: 1.75; }
+  .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .65rem; margin-top: 1.5rem; }
+
+  .hero-artifact,
+  .hero-portrait { position: absolute; z-index: 4; transition: transform .35s ease, box-shadow .35s ease; }
+  .hero-artifact:hover,
+  .hero-portrait:hover { transform: translateY(-5px) rotate(0deg); }
+
+  .artifact-note {
+    top: 10%; left: 3%; width: 11rem; padding: 1.2rem; transform: rotate(-5deg);
+    border: 1px solid var(--color-line); border-radius: .45rem; background: #f4efe7;
+    box-shadow: 0 12px 28px rgba(65,54,45,.08);
+  }
+  .artifact-note span { color: var(--color-muted); font-size: .52rem; }
+  .artifact-note strong { display: block; margin-top: 1rem; font-size: .76rem; font-weight: 500; line-height: 1.55; }
+  .artifact-note i { display: block; width: 2.5rem; height: .35rem; margin-top: 1rem; background: var(--color-accent); }
+
+  .artifact-terminal {
+    top: 16%; right: 3%; width: 13rem; overflow: hidden; transform: rotate(3deg);
+    border: 1px solid var(--color-line); border-radius: 1rem; background: rgba(255,253,249,.92);
+    box-shadow: 0 15px 32px rgba(65,54,45,.08);
+  }
+  .terminal-bar { display: flex; gap: .3rem; padding: .7rem; border-bottom: 1px solid var(--color-line); }
+  .terminal-bar span { width: .42rem; height: .42rem; border-radius: 50%; background: #d8d0c8; }
+  .artifact-terminal code { display: block; padding: 1rem; color: var(--color-muted); font-size: .57rem; line-height: 1.9; }
+  .artifact-terminal b { color: var(--color-accent); font-weight: 500; }
+
+  .artifact-signal { left: 4%; bottom: 16%; width: 14rem; transform: rotate(2deg); color: var(--color-muted); font-size: .55rem; }
+  .signal-line { position: relative; height: 3rem; margin: .55rem 0; background: repeating-linear-gradient(90deg, transparent 0 19px, rgba(85,80,73,.12) 20px), repeating-linear-gradient(0deg, transparent 0 14px, rgba(85,80,73,.1) 15px); }
+  .signal-line::after { position: absolute; inset: 45% 0 auto; height: 2px; background: var(--color-accent); content: ""; clip-path: polygon(0 50%,8% 45%,12% 10%,17% 88%,22% 35%,30% 60%,40% 45%,47% 10%,54% 90%,61% 35%,70% 65%,78% 40%,86% 58%,100% 50%,100% 65%,86% 72%,78% 58%,70% 78%,61% 52%,54% 100%,47% 25%,40% 62%,30% 77%,22% 53%,17% 100%,12% 30%,8% 62%,0 65%); }
+
+  .artifact-folder {
+    right: 5%; bottom: 17%; width: 10rem; height: 7rem; padding: 1.2rem; transform: rotate(-4deg);
+    border-radius: .6rem 1rem 1rem 1rem; background: var(--color-accent); color: white;
+    box-shadow: 8px 10px 0 rgba(36,71,242,.15);
+  }
+  .artifact-folder::before { position: absolute; top: -.8rem; left: 0; width: 4.5rem; height: 1.2rem; border-radius: .5rem .5rem 0 0; background: var(--color-accent); content: ""; }
+  .artifact-folder span { display: block; font-size: .62rem; }
+  .artifact-folder small { display: block; margin-top: 2.5rem; font-size: .5rem; opacity: .72; }
+
+  .hero-portrait { right: 20%; bottom: 5%; width: 8.5rem; transform: rotate(4deg); }
+  .hero-portrait img { display: block; width: 100%; mix-blend-mode: multiply; transition: filter .35s ease; -webkit-mask-image: radial-gradient(circle, #000 55%, transparent 76%); mask-image: radial-gradient(circle, #000 55%, transparent 76%); }
+  .hero-portrait:hover img { filter: drop-shadow(14px 3px 0 rgba(36, 71, 242, .88)); }
+  .hero-portrait span { position: absolute; right: -.4rem; bottom: .35rem; border-radius: 99px; background: #f3eee8; padding: .35rem .55rem; color: var(--color-muted); font-family: var(--font-mono); font-size: .46rem; }
+
+  .hero-keywords { position: absolute; bottom: 4.25rem; left: 50%; z-index: 8; display: flex; transform: translateX(-50%); gap: .5rem; white-space: nowrap; }
+  .hero-keywords span { border: 1px solid var(--color-line); border-radius: 99px; background: rgba(255,251,246,.74); padding: .45rem .7rem; color: var(--color-muted); font-size: .52rem; }
+  .hero-scroll { position: absolute; bottom: 1.3rem; left: 50%; z-index: 8; transform: translateX(-50%); color: var(--color-muted); font-size: .55rem; text-decoration: none; }
+  .hero-scroll span { color: var(--color-accent); }
+
+  @media (max-width: 900px) {
+    .hero-playground { min-height: auto; padding-bottom: 5rem; }
+    .hero-intro { width: 100%; padding-top: 8rem; }
+    .artifact-note, .artifact-terminal { top: 1.8rem; transform: scale(.78) rotate(-4deg); }
+    .artifact-note { left: -.7rem; }
+    .artifact-terminal { right: -.8rem; transform: scale(.75) rotate(3deg); }
+    .artifact-signal, .artifact-folder { display: none; }
+    .hero-portrait { position: relative; right: auto; bottom: auto; width: 9rem; margin: 2rem auto 0; }
+    .hero-keywords { position: relative; bottom: auto; left: auto; flex-wrap: wrap; justify-content: center; margin-top: 2rem; transform: none; white-space: normal; }
+    .hero-scroll { display: none; }
+  }
+
+  @media (max-width: 540px) {
+    .hero-intro { padding-top: 9rem; }
+    .hero-name { font-size: clamp(3.9rem, 21vw, 6rem); }
+    .artifact-note { top: 1.2rem; left: -2.2rem; }
+    .artifact-terminal { top: 2rem; right: -3rem; }
   }
 </style>

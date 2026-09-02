@@ -1,15 +1,14 @@
-<header class="sticky top-0 z-40 border-b border-ink/20 bg-paper/90 backdrop-blur-md">
-  <nav class="page-shell flex h-[4.5rem] items-center justify-between" aria-label="Primary navigation">
+<header class="pointer-events-none fixed inset-x-0 top-0 z-40 pt-4">
+  <nav class="page-shell pointer-events-auto flex items-center justify-between" aria-label="Primary navigation">
     <a href="/" class="group flex items-center gap-3" aria-label="Jingyuan Ren, home">
-      <span class="grid size-8 place-items-center bg-accent font-serif text-base italic text-white transition group-hover:-rotate-3">JR</span>
-      <span class="font-serif text-lg tracking-[-0.03em]">Jingyuan Ren<span class="text-accent">.</span></span>
+      <span class="grid size-10 place-items-center rounded-full border border-line bg-surface/90 font-mono text-[0.62rem] font-semibold text-accent shadow-sm backdrop-blur-md transition group-hover:-rotate-6">JR</span>
+      <span class="hidden font-mono text-xs font-medium sm:inline">Jingyuan Ren</span>
     </a>
-    <div class="hidden items-center gap-8 font-mono text-[0.62rem] uppercase tracking-[0.12em] text-muted md:flex">
-      <a class="transition hover:text-accent" href="/#work">01 / Work</a>
-      <a class="transition hover:text-accent" href="/#approach">02 / Approach</a>
-      <a class="transition hover:text-accent" href="/#background">03 / Background</a>
-      <a class="transition hover:text-accent" href="/about">About</a>
+    <div class="flex items-center gap-1 rounded-full border border-line bg-surface/88 p-1.5 font-mono text-[0.58rem] text-muted shadow-sm backdrop-blur-md sm:gap-2">
+      <a class="rounded-full px-2.5 py-2 transition hover:bg-white hover:text-accent sm:px-3" href="/#work">Work</a>
+      <a class="hidden rounded-full px-3 py-2 transition hover:bg-white hover:text-accent md:block" href="/#approach">Approach</a>
+      <a class="hidden rounded-full px-3 py-2 transition hover:bg-white hover:text-accent sm:block" href="/about">About</a>
+      <a href="mailto:hello@example.com" class="rounded-full bg-accent px-3 py-2 text-white transition hover:-translate-y-0.5">Connect ↗</a>
     </div>
-    <a href="mailto:hello@example.com" class="group flex items-center gap-2 border-b border-ink py-2 font-mono text-[0.62rem] uppercase tracking-[0.1em] transition hover:border-accent hover:text-accent"><span class="size-1.5 bg-accent"></span>Connect ↗</a>
   </nav>
 </header>

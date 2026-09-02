@@ -35,16 +35,16 @@ const thinking = [
   <section class="section-block bg-paper" id="work-with">
     <div class="page-shell">
       <SectionTitle index="01 / Inputs" title="What I Work With" intro="Different data types create different failure modes. I focus on understanding those constraints before choosing a model." />
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4">
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {workAreas.map((area, index) => <WorkWithCard number={String(index + 1).padStart(2, '0')} {...area} />)}
       </div>
     </div>
   </section>
 
-  <section class="section-block bg-surface/50" id="work">
+  <section class="section-block" id="work">
     <div class="page-shell">
       <SectionTitle index="02 / Systems" title="Selected ML & Data Systems Work" intro="Academic, competition, and research-oriented work—presented as it is today, with a clear path toward deeper case studies." />
-      <div class="border-t border-line">
+      <div class="space-y-3">
         {projects.map((project, index) => <ProjectCard project={project} index={index} />)}
       </div>
       <div class="mt-8 flex justify-end"><Button href="/projects" variant="secondary">View all projects</Button></div>
@@ -54,13 +54,13 @@ const thinking = [
   <section class="section-block" id="approach">
     <div class="page-shell">
       <SectionTitle index="03 / Approach" title="How I Think" intro="A practical loop for technical work: understand uncertainty, build the workflow, evaluate the system, and communicate the result." />
-      <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {thinking.map((item, index) => <ThinkingCard {...item} index={String(index + 1).padStart(2, '0')} />)}
       </div>
     </div>
   </section>
 
-  <section class="section-block bg-surface/50" id="background">
+  <section class="section-block" id="background">
     <div class="page-shell">
       <SectionTitle index="04 / Background" title="Education & Experience" intro="A technical path grounded in information engineering, expanded through data science, and sharpened by communication practice." />
       <div class="grid gap-12 lg:grid-cols-[minmax(0,1.35fr)_minmax(20rem,0.65fr)]">
@@ -70,10 +70,10 @@ const thinking = [
           <EducationItem school="Communication University of China" degree="Master's, TV / Media Production" location="Beijing, China" date="2019–2022" detail="Focus: communication, documentary storytelling, visual research, and research-based narrative structure." />
         </div>
         <div class="lg:pt-10">
-          <div class="paper-surface sticky top-24 border border-ink/25 p-7 shadow-[7px_8px_0_rgba(23,25,21,.06)]">
+          <div class="paper-surface sticky top-24 rounded-2xl border border-line p-7">
             <p class="eyebrow">Through-line</p>
-            <p class="mt-5 font-serif text-3xl leading-snug tracking-[-0.04em]">From signals to systems—and from systems to explanations people can use.</p>
-            <div class="mt-10 space-y-4 font-mono text-[0.65rem] uppercase tracking-[0.12em] text-muted">
+            <p class="mt-5 font-mono text-lg font-medium leading-relaxed tracking-[-0.04em]">From signals to systems—and from systems to explanations people can use.</p>
+            <div class="mt-10 space-y-4 font-mono text-[0.58rem] text-muted">
               <div class="flex justify-between border-t border-line pt-3"><span>Engineering</span><span>01</span></div>
               <div class="flex justify-between border-t border-line pt-3"><span>Data science</span><span>02</span></div>
               <div class="flex justify-between border-t border-line pt-3"><span>Communication</span><span>03</span></div>
@@ -101,22 +101,21 @@ const thinking = [
     </div>
   </section>
 
-  <section class="relative overflow-hidden border-t border-ink bg-surface" id="contact">
-    <div class="tech-grid absolute inset-0 opacity-35"></div>
-    <div class="absolute right-[8%] top-16 h-28 w-20 rotate-3 bg-accent"></div>
-    <div class="page-shell relative z-10 py-20 sm:py-28">
-      <div class="mb-8 flex items-center justify-between border-b border-ink pb-5">
-        <p class="eyebrow">06 / Contact</p>
-        <span class="system-chip">Available for MLE / AI / Data roles</span>
-      </div>
-      <h2 class="print-offset max-w-7xl font-serif text-[clamp(3.6rem,10vw,10rem)] font-normal leading-[0.76] tracking-[-0.08em] text-ink">Let's build<br /><span class="italic">reliable systems</span><span class="text-accent">.</span></h2>
-      <div class="mt-14 grid gap-8 border-t border-line pt-8 lg:grid-cols-[1fr_auto] lg:items-end">
-        <p class="max-w-2xl text-base leading-7 text-muted">I’m preparing for MLE, AI Engineer, and Data Engineer roles. I’d be glad to discuss the work, the methods, or what I’m building next.</p>
+  <section class="section-block" id="contact">
+    <div class="page-shell">
+      <div class="relative overflow-hidden rounded-[2rem] border border-line bg-surface p-8 sm:p-12 lg:p-16">
+        <div class="absolute -right-12 -top-12 size-40 rounded-full bg-accent/8"></div>
+        <p class="font-mono text-xs text-accent">06 / Say hello ☺︎</p>
+        <h2 class="mt-7 max-w-3xl font-mono text-[clamp(1.8rem,4.5vw,4rem)] font-semibold leading-[1.08] tracking-[-0.06em] text-ink">Let’s build reliable systems together.</h2>
+        <span class="mt-7 inline-flex rounded-full bg-accent px-4 py-2 font-mono text-[0.58rem] text-white">Available for MLE / AI / Data roles</span>
+        <div class="mt-10 grid gap-8 border-t border-line pt-8 lg:grid-cols-[1fr_auto] lg:items-end">
+        <p class="max-w-2xl font-mono text-sm leading-7 text-muted">I’m preparing for MLE, AI Engineer, and Data Engineer roles. I’d be glad to discuss the work, the methods, or what I’m building next.</p>
         <div class="flex flex-wrap gap-3">
           <Button href="mailto:hello@example.com">Email me</Button>
           <Button href="https://github.com/" variant="secondary" external>GitHub</Button>
           <Button href="https://www.linkedin.com/" variant="secondary" external>LinkedIn</Button>
           <Button href="/cv.pdf" variant="secondary">CV PDF</Button>
+        </div>
         </div>
       </div>
     </div>

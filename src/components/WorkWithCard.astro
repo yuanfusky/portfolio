@@ -7,14 +7,14 @@ interface Props {
 const { number, title, items } = Astro.props;
 ---
 
-<article class="paper-surface group relative min-h-72 overflow-hidden border border-ink/20 p-6 transition duration-300 hover:-translate-y-1 hover:border-accent sm:p-7">
+<article class="group relative min-h-64 overflow-hidden rounded-2xl border border-line bg-surface/60 p-6 transition duration-300 hover:-translate-y-1 hover:border-accent/25 hover:bg-surface hover:shadow-[0_14px_34px_rgba(67,58,50,.08)] sm:p-7">
   <div class="flex items-center justify-between">
-    <span class="relative z-10 font-mono text-[0.65rem] tracking-widest text-accent">{number} / DATA</span>
-    <span class="relative z-10 size-2 border border-accent transition group-hover:rotate-45 group-hover:bg-accent"></span>
+    <span class="relative z-10 font-mono text-[0.58rem] text-accent">{number} / data</span>
+    <span class="relative z-10 size-2 rounded-full bg-accent transition group-hover:scale-[2]"></span>
   </div>
-  <div class="archive-number absolute right-4 top-12 transition group-hover:text-accent/15">{number}</div>
-  <h3 class="relative z-10 mt-14 max-w-[13rem] font-serif text-3xl leading-[1.02] tracking-[-0.045em] transition group-hover:text-accent">{title}</h3>
+  <div class="absolute -right-3 top-10 font-mono text-7xl font-semibold text-ink/[0.035] transition group-hover:text-accent/[0.08]">{number}</div>
+  <h3 class="relative z-10 mt-12 max-w-[13rem] font-mono text-lg font-semibold leading-tight tracking-[-0.035em] transition group-hover:text-accent">{title}</h3>
   <ul class="relative z-10 mt-7 space-y-2 border-t border-line pt-5 text-sm leading-6 text-muted">
-    {items.map((item) => <li>{item}</li>)}
+    {items.map((item) => <li class="text-xs">{item}</li>)}
   </ul>
 </article>

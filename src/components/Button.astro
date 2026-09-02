@@ -6,11 +6,11 @@ interface Props {
 }
 
 const { href, variant = 'primary', external = false } = Astro.props;
-const base = 'inline-flex items-center justify-center gap-3 border px-5 py-3 font-mono text-[0.64rem] font-medium uppercase tracking-[0.11em] transition duration-200';
+const base = 'inline-flex items-center justify-center gap-2 rounded-full border px-4 py-2.5 font-mono text-[0.62rem] font-medium transition duration-200';
 const variants = {
-  primary: 'border-accent bg-accent text-white shadow-[4px_4px_0_var(--color-ink)] hover:-translate-y-0.5 hover:shadow-[6px_6px_0_var(--color-ink)]',
-  secondary: 'border-ink/30 bg-surface/50 text-ink hover:-translate-y-0.5 hover:border-accent hover:text-accent',
-  text: 'border-transparent px-0 py-1 text-accent hover:text-ink',
+  primary: 'border-accent bg-accent text-white shadow-[0_6px_18px_rgba(36,71,242,.16)] hover:-translate-y-0.5 hover:shadow-[0_9px_24px_rgba(36,71,242,.22)]',
+  secondary: 'border-line bg-surface/80 text-ink hover:-translate-y-0.5 hover:border-accent hover:text-accent',
+  text: 'border-transparent px-0 py-1 text-accent hover:translate-x-0.5 hover:text-ink',
 };
 ---
 

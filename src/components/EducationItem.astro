@@ -10,14 +10,14 @@ interface Props {
 const { school, degree, location, date, detail, thesis } = Astro.props;
 ---
 
-<article class="grid gap-5 border-t border-line py-8 md:grid-cols-[minmax(15rem,0.52fr)_1fr] md:py-10">
+<article class="grid gap-5 border-t border-line py-8 md:grid-cols-[minmax(15rem,0.52fr)_1fr] md:py-9">
   <div>
-    <h3 class="font-serif text-2xl tracking-[-0.03em]">{school}</h3>
-    <p class="mt-2 font-mono text-[0.65rem] uppercase tracking-[0.12em] text-muted">{location} · {date}</p>
+    <h3 class="font-mono text-base font-semibold tracking-[-0.03em]">{school}</h3>
+    <p class="mt-2 font-mono text-[0.58rem] text-muted">{location} · {date}</p>
   </div>
   <div>
-    <p class="font-medium">{degree}</p>
-    <p class="mt-3 text-sm leading-7 text-muted">{detail}</p>
-    {thesis && <p class="mt-3 text-sm leading-7 text-muted"><span class="font-medium text-ink">Thesis:</span> {thesis}</p>}
+    <p class="text-sm font-medium">{degree}</p>
+    <p class="mt-3 font-mono text-xs leading-6 text-muted">{detail}</p>
+    {thesis && <p class="mt-3 font-mono text-xs leading-6 text-muted"><span class="font-medium text-ink">Thesis:</span> {thesis}</p>}
   </div>
 </article>

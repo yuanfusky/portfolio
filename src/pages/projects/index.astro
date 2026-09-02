@@ -6,15 +6,15 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.priorit
 ---
 
 <BaseLayout title="Projects — Jingyuan Ren" description="ML, AI evaluation, data engineering, and sensor systems work by Jingyuan Ren.">
-  <header class="page-shell pb-16 pt-20 sm:pb-24 sm:pt-28">
-    <p class="eyebrow">Project index</p>
-    <div class="mt-7 grid gap-8 lg:grid-cols-[1fr_24rem] lg:items-end">
-      <h1 class="print-offset font-serif text-[clamp(3.5rem,8vw,8rem)] font-normal leading-[0.82] tracking-[-0.07em]">Work in systems, models, <span class="italic">and evaluation</span><span class="text-accent">.</span></h1>
-      <p class="border-l border-line pl-6 text-sm leading-7 text-muted">This collection includes course projects, academic prototypes, and competition work. Each entry records what exists now and the next extension that could turn it into a deeper case study.</p>
+  <header class="page-shell pb-14 pt-36 sm:pb-20 sm:pt-44">
+    <p class="font-mono text-xs text-accent">Project archive / 04 studies</p>
+    <div class="mt-7 grid gap-8 lg:grid-cols-[1fr_26rem] lg:items-end">
+      <h1 class="max-w-3xl font-mono text-[clamp(2.5rem,6vw,5.6rem)] font-semibold leading-[.95] tracking-[-0.07em]">Work in systems, models, <span class="text-accent">and evaluation.</span></h1>
+      <p class="font-mono text-sm leading-7 text-muted">This collection includes course projects, academic prototypes, and competition work. Each entry records what exists now and the next extension that could turn it into a deeper case study.</p>
     </div>
   </header>
-  <section class="border-t border-line bg-surface/50">
-    <div class="page-shell border-t border-line py-10 sm:py-16">
+  <section>
+    <div class="page-shell space-y-3 pb-24 sm:pb-32">
       {projects.map((project, index) => <ProjectCard project={project} index={index} />)}
     </div>
   </section>
