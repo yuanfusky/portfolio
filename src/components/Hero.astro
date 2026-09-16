@@ -50,17 +50,17 @@
 
   .hero-name { display: flex; align-items: baseline; justify-content: center; color: #343638; font-family: var(--font-mono); font-size: clamp(3rem, 7.6vw, 6.6rem); font-weight: 650; line-height: 1; letter-spacing: -.065em; text-shadow: .035em 0 color-mix(in srgb, var(--color-accent) 18%, transparent); }
   .hero-prompt { margin-right: .26em; color: var(--color-accent); font-size: .48em; font-weight: 500; text-shadow: none; }
-  .typing-track { position: relative; display: inline-block; width: 12ch; margin-bottom: -.22em; padding-bottom: .22em; overflow: visible; text-align: left; white-space: nowrap; }
+  .typing-track { position: relative; display: inline-block; width: calc(12ch - .78em); margin-bottom: -.22em; padding-bottom: .22em; overflow: visible; text-align: left; white-space: nowrap; }
   .hero-name-text { display: block; clip-path: inset(0 100% -.24em 0); animation: type-name 1.2s steps(12, end) .25s forwards; }
   .hero-cursor { position: absolute; top: .08em; left: 0; width: .065em; height: .8em; background: var(--color-accent); box-shadow: 0 0 .16em color-mix(in srgb, var(--color-accent) 45%, transparent); animation: cursor-travel 1.2s steps(12, end) .25s forwards, cursor-blink .5s step-end .25s 3, cursor-hide .01s linear 1.55s forwards; }
   @keyframes type-name { to { clip-path: inset(0 0 -.24em 0); } }
-  @keyframes cursor-travel { to { transform: translateX(12ch); } }
+  @keyframes cursor-travel { to { left: 100%; } }
   @keyframes cursor-blink { 50% { opacity: 0; } }
   @keyframes cursor-hide { to { opacity: 0; } }
 
-  .identity-sequence { margin-top: 1.55rem; }
-  .typed-track { width: min(40ch, 100%); min-height: 1.65rem; margin-inline: auto; text-align: left; }
-  .typed-line { width: 0; overflow: hidden; border-right: 2px solid transparent; padding-bottom: .12em; white-space: nowrap; font-size: clamp(.66rem, 1vw, .82rem); letter-spacing: .035em; }
+  .identity-sequence { display: grid; justify-items: center; margin-top: 1.55rem; }
+  .typed-track { width: min(calc(40ch + 1.4em), 100%); min-height: 1.65rem; margin-inline: auto; font-size: clamp(.66rem, 1vw, .82rem); letter-spacing: .035em; text-align: left; }
+  .typed-line { width: 0; overflow: hidden; border-right: 2px solid transparent; padding-bottom: .12em; white-space: nowrap; font-size: inherit; letter-spacing: inherit; }
   .typed-discipline { color: var(--color-accent); animation: type-line 1.65s steps(40, end) 1.65s forwards, line-cursor .5s step-end 1.65s 4, line-cursor-hide .01s linear 3.38s forwards; }
   .typed-role { color: var(--color-ink); animation: type-line 1.75s steps(40, end) 3.48s forwards, line-cursor .62s step-end 3.48s infinite; }
   @keyframes type-line { to { width: 100%; } }
