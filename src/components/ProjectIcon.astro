@@ -99,15 +99,14 @@ const { slug, code, index } = Astro.props;
 
   :global(.project-row:hover) svg,
   :global(.project-row:focus-within) svg {
-    color: var(--color-ink);
-    filter: drop-shadow(.16rem .16rem 0 var(--color-accent));
+    color: var(--color-accent);
     transform: rotate(-3deg) translateY(-.18rem);
   }
 
   :global(.project-row:hover) .project-icon-meta,
   :global(.project-row:focus-within) .project-icon-meta {
-    color: var(--color-ink);
-    border-color: var(--color-accent);
+    color: var(--color-accent);
+    border-color: color-mix(in srgb, var(--color-accent) 40%, var(--color-line));
   }
 
   @media (max-width: 680px) {

@@ -2,15 +2,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-paper: #83c7ed;
-  --color-surface: #9bd3f1;
-  --color-ink: #343638;
-  --color-muted: #535a60;
-  --color-line: #68add6;
-  --color-accent: #fff46b;
-  --color-accent-soft: #fff9a6;
-  --color-signal: #38566a;
-  --color-warm: #e7cf42;
+  --color-paper: #fffaf5;
+  --color-surface: #fcf7f2;
+  --color-ink: #3e3e42;
+  --color-muted: #69645e;
+  --color-line: #e8e0d9;
+  --color-accent: #2447f2;
+  --color-accent-soft: #dfe3fa;
+  --color-signal: #425a4b;
+  --color-warm: #a76546;
   --font-sans: "Fira Code Variable", "Fira Code", ui-monospace, monospace;
   --font-serif: "Fira Code Variable", "Fira Code", ui-monospace, monospace;
   --font-mono: "Fira Code Variable", "Fira Code", ui-monospace, monospace;
@@ -37,7 +37,7 @@ body {
 }
 
 ::selection {
-  color: var(--color-ink);
+  color: white;
   background: var(--color-accent);
 }
 
@@ -48,9 +48,8 @@ button {
 
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--color-ink);
+  outline: 2px solid var(--color-accent);
   outline-offset: 4px;
-  box-shadow: 0 0 0 3px var(--color-accent);
 }
 
 .page-shell {
@@ -65,8 +64,8 @@ button:focus-visible {
 
 .tech-grid {
   background-image:
-    linear-gradient(rgba(52, 54, 56, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(52, 54, 56, 0.055) 1px, transparent 1px);
+    linear-gradient(rgba(22, 78, 232, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(22, 78, 232, 0.055) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 

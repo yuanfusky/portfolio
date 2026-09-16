@@ -8,9 +8,9 @@ interface Props {
 const { href, variant = 'primary', external = false } = Astro.props;
 const base = 'inline-flex items-center justify-center gap-2 rounded-full border px-4 py-2.5 font-mono text-[0.62rem] font-medium transition duration-200';
 const variants = {
-  primary: 'border-accent bg-accent text-ink shadow-[0_6px_18px_rgba(52,54,56,.12)] hover:-translate-y-0.5 hover:shadow-[0_9px_24px_rgba(52,54,56,.18)]',
-  secondary: 'border-line bg-surface/80 text-ink hover:-translate-y-0.5 hover:border-ink hover:bg-accent',
-  text: 'border-transparent px-0 py-1 text-ink decoration-accent decoration-2 underline-offset-4 hover:translate-x-0.5 hover:underline',
+  primary: 'border-accent bg-accent text-white shadow-[0_6px_18px_rgba(36,71,242,.16)] hover:-translate-y-0.5 hover:shadow-[0_9px_24px_rgba(36,71,242,.22)]',
+  secondary: 'border-line bg-surface/80 text-ink hover:-translate-y-0.5 hover:border-accent hover:text-accent',
+  text: 'border-transparent px-0 py-1 text-accent hover:translate-x-0.5 hover:text-ink',
 };
 ---
 

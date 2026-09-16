@@ -7,9 +7,9 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.priorit
 
 <BaseLayout title="Projects — Jingyuan Ren" description="ML, AI evaluation, data engineering, and sensor systems work by Jingyuan Ren.">
   <header class="page-shell pb-14 pt-36 sm:pb-20 sm:pt-44">
-    <p class="inline-flex bg-accent px-2 py-1 font-mono text-xs text-ink">Project archive / {String(projects.length).padStart(2, '0')} studies</p>
+    <p class="font-mono text-xs text-accent">Project archive / {String(projects.length).padStart(2, '0')} studies</p>
     <div class="mt-7 grid gap-8 lg:grid-cols-[1fr_26rem] lg:items-end">
-      <h1 class="max-w-3xl font-mono text-[clamp(2.5rem,6vw,5.6rem)] font-semibold leading-[.95] tracking-[-0.07em]">Work in systems, models, <span class="bg-accent px-[.08em] text-ink">and evaluation.</span></h1>
+      <h1 class="max-w-3xl font-mono text-[clamp(2.5rem,6vw,5.6rem)] font-semibold leading-[.95] tracking-[-0.07em]">Work in systems, models, <span class="text-accent">and evaluation.</span></h1>
       <p class="font-mono text-sm leading-7 text-muted">Industry collaboration, competition work, and academic prototypes—each structured around the problem addressed, the methods used, and the outcome reached or targeted.</p>
     </div>
   </header>

@@ -8,7 +8,7 @@ const { index, title, intro } = Astro.props;
 ---
 
 <header class="mb-10 max-w-4xl md:mb-12">
-  <p class="mb-4 inline-flex bg-accent px-2 py-1 font-mono text-[0.58rem] uppercase tracking-[0.12em] text-ink">{index}</p>
+  <p class="mb-4 font-mono text-[0.58rem] uppercase tracking-[0.12em] text-accent">{index}</p>
   <h2 class="font-mono text-xl font-semibold tracking-[-0.035em] text-ink sm:text-2xl">{title} <span class="text-accent">✦</span></h2>
   {intro && <p class="mt-5 max-w-3xl font-mono text-sm leading-7 text-muted">{intro}</p>}
 </header>

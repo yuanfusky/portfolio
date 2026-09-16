@@ -33,7 +33,7 @@ const resolvedSocialImage = socialImage ? new URL(socialImage, Astro.site) : nul
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     {resolvedSocialImage && <meta property="og:image" content={resolvedSocialImage} />}
-    {resolvedSocialImage && <meta property="og:image:alt" content="Jingyuan Ren portfolio — blue and yellow technical editorial graphic" />}
+    {resolvedSocialImage && <meta property="og:image:alt" content="Jingyuan Ren portfolio — technical editorial collage" />}
     <meta name="twitter:card" content={resolvedSocialImage ? 'summary_large_image' : 'summary'} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
