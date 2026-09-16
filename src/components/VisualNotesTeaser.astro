@@ -1,0 +1,97 @@
+<div class="visual-notes-teaser">
+  <div>
+    <p class="eyebrow">05 / Visual Notes</p>
+    <p class="teaser-copy">
+      Before data science, I worked in documentary storytelling, where I developed my communication and narrative abilities. If you’re interested in this detour—and in the mind and soul behind my work—please click here.
+    </p>
+  </div>
+
+  <a class="camera-link" href="/visual-notes" aria-label="Explore Jingyuan Ren's documentary work">
+    <svg viewBox="0 0 48 48" aria-hidden="true">
+      <path d="M16 14.5 19 10h10l3 4.5h6.5a4.5 4.5 0 0 1 4.5 4.5v16a4.5 4.5 0 0 1-4.5 4.5h-29A4.5 4.5 0 0 1 5 35V19a4.5 4.5 0 0 1 4.5-4.5H16Z" />
+      <circle cx="24" cy="27" r="8" />
+      <circle cx="37" cy="20" r="1.5" class="indicator" />
+    </svg>
+    <span>Open visual notes</span>
+  </a>
+</div>
+
+<style>
+  .visual-notes-teaser {
+    display: grid;
+    gap: 2.5rem;
+    align-items: end;
+    padding-block: clamp(1.5rem, 4vw, 3.5rem);
+    border-top: 1px solid var(--color-line);
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .teaser-copy {
+    max-width: 52rem;
+    margin-top: 1.75rem;
+    color: var(--color-muted);
+    font-size: clamp(.95rem, 1.35vw, 1.1rem);
+    line-height: 1.9;
+  }
+
+  .camera-link {
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    gap: .8rem;
+    color: var(--color-ink);
+    font-size: .68rem;
+    letter-spacing: .08em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .camera-link svg {
+    width: 2.4rem;
+    height: 2.4rem;
+    overflow: visible;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.5;
+    transition: color 200ms ease, transform 240ms ease;
+  }
+
+  .camera-link .indicator {
+    fill: var(--color-accent);
+    stroke: none;
+  }
+
+  .camera-link span {
+    border-bottom: 1px solid var(--color-line);
+    padding-bottom: .2rem;
+    transition: border-color 200ms ease, color 200ms ease;
+  }
+
+  .camera-link:hover svg,
+  .camera-link:focus-visible svg {
+    color: var(--color-accent);
+    transform: rotate(-4deg) translateY(-.15rem);
+  }
+
+  .camera-link:hover span,
+  .camera-link:focus-visible span {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  @media (min-width: 760px) {
+    .visual-notes-teaser {
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 5rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .camera-link svg,
+    .camera-link span {
+      transition: none;
+    }
+  }
+</style>

@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import VisualNotesGrid from '../components/VisualNotesGrid.astro';
+---
+
+<BaseLayout title="Visual Notes — Jingyuan Ren" description="Selected documentary work by Jingyuan Ren, spanning directing, research, and visual storytelling.">
+  <article class="page-shell pb-24 pt-36 sm:pb-32 sm:pt-44">
+    <header class="max-w-4xl">
+      <p class="eyebrow">Visual Notes / Documentary Work</p>
+      <h1 class="mt-8 font-mono text-[clamp(2.8rem,7vw,6.5rem)] font-semibold leading-[.94] tracking-[-.075em]">
+        A detour through <span class="text-accent">storytelling.</span>
+      </h1>
+      <p class="mt-10 max-w-3xl font-mono text-sm leading-8 text-muted sm:text-base">
+        Before data science, I worked in documentary production. These selected works reflect a different part of my practice: researching complex subjects, shaping narrative structure, directing collaboration, and communicating ideas through images and sound.
+      </p>
+    </header>
+
+    <div class="mt-16 border-t border-line pt-10 sm:mt-24 sm:pt-14">
+      <VisualNotesGrid />
+    </div>
+  </article>
+</BaseLayout>
