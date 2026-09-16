@@ -1,0 +1,83 @@
+---
+interface Props {
+  status: string;
+  title: string;
+  context: string;
+  summary: string;
+}
+
+const { status, title, context, summary } = Astro.props;
+---
+
+<article class="current-item">
+  <div class="current-status">
+    <span aria-hidden="true"></span>
+    {status}
+  </div>
+  <div class="current-copy">
+    <p class="current-context">{context}</p>
+    <h3>{title}</h3>
+    <p class="current-summary">{summary}</p>
+  </div>
+</article>
+
+<style>
+  .current-item {
+    display: grid;
+    grid-template-columns: minmax(10rem, .34fr) minmax(0, 1fr);
+    gap: clamp(1.25rem, 3vw, 3rem);
+    padding-block: 1.75rem;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .current-item:last-child { border-bottom: 1px solid var(--color-line); }
+
+  .current-status {
+    display: flex;
+    align-items: flex-start;
+    gap: .65rem;
+    color: var(--color-accent);
+    font-size: .62rem;
+    line-height: 1.55;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+  }
+
+  .current-status span {
+    flex: 0 0 auto;
+    width: .48rem;
+    height: .48rem;
+    margin-top: .22rem;
+    border: 1px solid var(--color-accent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-accent) 14%, transparent);
+    box-shadow: 0 0 0 .22rem color-mix(in srgb, var(--color-accent) 6%, transparent);
+  }
+
+  .current-context {
+    color: var(--color-muted);
+    font-size: .64rem;
+    line-height: 1.5;
+  }
+
+  h3 {
+    margin-top: .45rem;
+    color: var(--color-ink);
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -.035em;
+  }
+
+  .current-summary {
+    max-width: 51rem;
+    margin-top: .75rem;
+    color: var(--color-muted);
+    font-size: .76rem;
+    line-height: 1.8;
+  }
+
+  @media (max-width: 680px) {
+    .current-item { grid-template-columns: 1fr; gap: .8rem; }
+  }
+</style>
