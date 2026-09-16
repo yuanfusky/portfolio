@@ -15,10 +15,10 @@ const projects = (await getCollection('projects', ({ data }) => data.featured))
   .sort((a, b) => a.data.priority - b.data.priority);
 
 const workAreas = [
-  { title: 'Text Data', items: ['RAG evaluation', 'Retrieval quality', 'Grounded generation'] },
-  { title: 'Medical Data', items: ['Synthetic tabular data', 'Privacy–utility tradeoff', 'Semantic preservation'] },
+  { title: 'LLM / AI Data', items: ['RAG evaluation', 'Retrieval quality', 'Grounded generation'] },
   { title: 'Sensor Data', items: ['Measurement noise', 'Sensor fusion', 'State estimation'] },
-  { title: 'Spatiotemporal / Structured Data', items: ['Fault diagnosis', 'Time-series monitoring', 'Evaluation design'] },
+  { title: 'Fault Diagnosis', items: ['Normal-behaviour modelling', 'Residual change detection', 'OOD & false-alarm control'] },
+  { title: 'Synthetic Medical Data', items: ['Privacy–utility tradeoff', 'Semantic preservation', 'Schema validation'] },
 ];
 
 ---
