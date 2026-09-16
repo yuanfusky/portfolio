@@ -1,6 +1,7 @@
 ---
 title: Multi-Sensor Fusion for Acoustic Tracking and Smartphone Orientation Estimation
 shortTitle: Sensor Fusion
+projectCode: FUSE
 slug: sensor-fusion
 status: Academic Project · Research Prototype
 domain: Sensor Fusion / Signal Processing
@@ -18,14 +19,13 @@ methods:
   - quaternion orientation estimation
   - outlier rejection
 oneLineProblem: How can hidden physical states be estimated from noisy, indirect, and imperfect sensor measurements?
-whatIBuilt: MATLAB localization, tracking, and quaternion-EKF pipelines with calibration, disturbance rejection, and diagnostic visualizations.
-whatILearned: Observability, calibration, sensor geometry, and carefully chosen correction signals determine whether fusion remains stable.
-nextExtension: Estimate bias online, use innovation-based statistical gating, compare filter formulations, and add quantitative ground-truth evaluation.
+problemSummary: Estimate vehicle position and smartphone orientation from noisy, indirect measurements affected by timing errors, nonlinear observation models, imperfect calibration, and environmental disturbances.
+methodsOutcome: Implemented MATLAB pipelines using TOA/TDOA localization, CRLB analysis, Kalman filtering, and a quaternion EKF with disturbance rejection, producing real-time state estimates and diagnostic visualizations for two sensor systems.
 interactionIdea: "Planned sensor-noise control: increase measurement noise to compare raw observations against the filtered state estimate."
 highlightValue: "2"
 highlightLabel: Sensor systems studied
 featured: true
-priority: 3
+priority: 4
 links: []
 ---
 
@@ -33,28 +33,10 @@ links: []
 
 This project addressed two hidden-state estimation problems using noisy, indirect sensor measurements: tracking a sound-emitting RC car with a microphone network, and estimating smartphone orientation using IMU and magnetometer data. Both required handling sensor noise, imperfect calibration, nonlinear measurement models, and environmental disturbances.
 
-## Data
+## Methods, Tools & Outcome
 
-The acoustic experiment used time-of-arrival measurements from microphones placed around a driving area. The orientation experiment used live accelerometer, gyroscope, magnetometer, and Android orientation data streamed from a phone. Stationary calibration data was used to estimate bias and noise covariance.
+The acoustic experiment used time-of-arrival measurements from a microphone network. I calibrated timing errors, analysed sensor geometry with the Cramér–Rao lower bound, estimated position through SLS and TDOA grid search, and tracked the vehicle with Kalman-filter models under nearly constant-velocity and coordinated-turn assumptions.
 
-## Method
+The orientation experiment used live accelerometer, gyroscope, magnetometer, and Android orientation data. I implemented a quaternion EKF in MATLAB: the gyroscope propagated orientation, gravity corrected roll and pitch, the magnetic field corrected yaw, and outlier rejection limited the impact of translational acceleration and magnetic interference.
 
-For acoustic localization, I modeled TOA and TDOA measurements, calibrated microphone timing errors, analyzed sensor geometry with the Cramér–Rao lower bound, and estimated position through SLS and TDOA grid search. Kalman-filter-based models then tracked the vehicle under nearly constant velocity and coordinated-turn assumptions.
-
-For orientation, I implemented a quaternion-based EKF. The gyroscope propagated orientation through time, the accelerometer corrected roll and pitch through gravity, and the magnetometer corrected yaw through the earth's magnetic field. Outlier rejection handled acceleration disturbances and magnetic interference.
-
-## What I Built
-
-- A MATLAB pipeline for microphone calibration, TOA/TDOA localization, CRLB analysis, and trajectory tracking.
-- KF and EKF tracking models using artificial position measurements and direct TDOA observations.
-- A real-time smartphone orientation EKF using quaternion states.
-- Disturbance rejection for accelerometer and magnetometer measurements.
-- Diagnostic visualizations for orientation error, Euler-angle error, acceleration disturbance, and magnetic disturbance.
-
-## What I Learned
-
-Gyroscopes respond quickly but drift without absolute references. Accelerometers can correct roll and pitch but become unreliable under fast translation. Magnetometers make yaw observable but are sensitive to environmental interference. In acoustic localization, sensor geometry strongly affected observability and estimation accuracy.
-
-## Next Extension
-
-I would estimate sensor bias online, replace simple norm-based outlier rejection with innovation-based statistical gating, and compare the orientation EKF with complementary and error-state filters. For acoustic tracking, I would add ground-truth evaluation and tune motion models against recorded trajectory metrics.
+The result was a set of working localization, tracking, and real-time orientation pipelines with diagnostic plots for trajectory, Euler-angle error, acceleration disturbance, and magnetic disturbance. The experiments made observability and sensor limitations explicit: gyroscopes drift, accelerometers fail during strong translation, magnetometers are environmentally sensitive, and microphone geometry strongly affects localization quality. A stronger extension would estimate bias online, use innovation-based gating, and add quantitative ground-truth evaluation.

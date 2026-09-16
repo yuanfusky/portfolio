@@ -4,12 +4,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import SectionTitle from '../components/SectionTitle.astro';
 import WorkWithCard from '../components/WorkWithCard.astro';
+import StudyList from '../components/StudyList.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import EducationItem from '../components/EducationItem.astro';
 import ExperienceItem from '../components/ExperienceItem.astro';
 import VisualNotesGrid from '../components/VisualNotesGrid.astro';
 import Button from '../components/Button.astro';
-import CurrentItem from '../components/CurrentItem.astro';
 
 const projects = (await getCollection('projects', ({ data }) => data.featured))
   .sort((a, b) => a.data.priority - b.data.priority);
@@ -21,33 +21,23 @@ const workAreas = [
   { title: 'Synthetic Medical Data', items: ['Privacy–utility tradeoff', 'Semantic preservation', 'Schema validation'] },
 ];
 
+const courses = [
+  'Machine Learning',
+  'Advanced Machine Learning',
+  'Distributed Information Processing and Machine Learning',
+  'Information Networks',
+  'Bayesian Learning',
+  'Sensor Fusion',
+  'Detection & Estimation of Signals',
+  'Multidimensional Signal Analysis',
+  'Natural Language Processing',
+  'Data Mining',
+];
+
 ---
 
 <BaseLayout>
   <Hero />
-
-  <section class="current-strip" id="currently" aria-labelledby="currently-title">
-    <div class="page-shell">
-      <div class="current-heading">
-        <p>Currently / Autumn 2026</p>
-        <h2 id="currently-title">Work in progress</h2>
-      </div>
-      <div>
-        <CurrentItem
-          status="Industry project · In progress"
-          context="TSKS25 · Linköping University × Siemens Energy"
-          title="AI-based fault diagnosis for gas turbines"
-          summary="Early-stage work on a Python diagnostic prototype for multivariate sensor time series. The project is exploring normal-behaviour modelling, residual change detection, out-of-distribution handling, and low-false-alarm localisation of affected sensor channels. Current focus: problem framing, data understanding, and system design."
-        />
-        <CurrentItem
-          status="Incoming role · Autumn 2026"
-          context="Linköping University"
-          title="Machine Learning Teaching Assistant"
-          summary="Selected for an upcoming teaching assistant role in Machine Learning. Responsibilities and teaching contributions will be added after the appointment begins."
-        />
-      </div>
-    </div>
-  </section>
 
   <section class="section-block bg-paper" id="work-with">
     <div class="page-shell">
@@ -58,9 +48,16 @@ const workAreas = [
     </div>
   </section>
 
+  <section class="section-block study-section" id="study-with">
+    <div class="page-shell">
+      <SectionTitle index="02 / Foundations" title="What I Study With" intro="Coursework spanning machine learning, distributed systems, probabilistic reasoning, signal estimation, and information networks." />
+      <StudyList courses={courses} />
+    </div>
+  </section>
+
   <section class="section-block" id="work">
     <div class="page-shell">
-      <SectionTitle index="02 / Systems" title="Selected ML & Data Systems Work" />
+      <SectionTitle index="03 / Systems" title="Selected ML & Data Systems Work" />
       <div class="space-y-3">
         {projects.map((project, index) => <ProjectCard project={project} index={index} />)}
       </div>
@@ -70,7 +67,7 @@ const workAreas = [
 
   <section class="section-block" id="background">
     <div class="page-shell">
-      <SectionTitle index="03 / Background" title="Education & Experience" intro="A technical path grounded in information engineering, expanded through data science, and sharpened by communication practice." />
+      <SectionTitle index="04 / Background" title="Education & Experience" intro="A technical path grounded in information engineering, expanded through data science, and sharpened by communication practice." />
       <div class="grid gap-12 lg:grid-cols-[minmax(0,1.35fr)_minmax(20rem,0.65fr)]">
         <div>
           <EducationItem school="Linköping University" degree="MSc, Data Science and Information Engineering" location="Linköping, Sweden" date="Expected 2027" detail="Relevant coursework: Machine Learning, Bayesian Learning, Sensor Fusion, Detection & Estimation of Signals, Multidimensional Signal Analysis, NLP, and Data Mining." />
@@ -91,6 +88,13 @@ const workAreas = [
       </div>
 
       <div class="mt-16">
+        <ExperienceItem company="Linköping University" role="Incoming Machine Learning Teaching Assistant · Autumn 2026" summary="Selected for an upcoming teaching assistant role in Machine Learning. Teaching responsibilities and contributions will be documented after the appointment begins." bullets={[
+          'Selected to support university-level Machine Learning teaching.',
+          'Role details will be added once formal teaching work begins.',
+        ]} />
+      </div>
+
+      <div class="mt-5">
         <ExperienceItem company="ByteDance / TikTok" role="Content Operations Intern, Documentary Studio" summary="Worked with documentary content operations in a large-scale digital platform environment, using dashboard tracking, A/B testing, content tagging, and competitive analysis to understand retention patterns and content performance." bullets={[
           'Built dashboards tracking play count, completion rate, and drop-off points to surface retention patterns beyond raw views.',
           'Designed title and thumbnail A/B tests with significance testing, accounting for algorithmic traffic allocation.',
@@ -103,7 +107,7 @@ const workAreas = [
 
   <section class="section-block" id="visual-notes">
     <div class="page-shell">
-      <SectionTitle index="04 / Secondary lens" title="Visual Notes" intro="Before data science, I worked in documentary storytelling. These selected Chinese-language productions reflect how I learned to structure complex material, direct collaborative work, and communicate with clarity." />
+      <SectionTitle index="05 / Secondary lens" title="Visual Notes" intro="Before data science, I worked in documentary storytelling. These selected Chinese-language productions reflect how I learned to structure complex material, direct collaborative work, and communicate with clarity." />
       <VisualNotesGrid />
     </div>
   </section>
@@ -111,34 +115,7 @@ const workAreas = [
 </BaseLayout>
 
 <style>
-  .current-strip {
-    padding-block: clamp(3.5rem, 6vw, 5.5rem);
+  .study-section {
     background: color-mix(in srgb, var(--color-surface) 72%, var(--color-paper));
-  }
-
-  .current-strip .page-shell {
-    display: grid;
-    grid-template-columns: minmax(11rem, .32fr) minmax(0, 1fr);
-    gap: clamp(2rem, 6vw, 6rem);
-  }
-
-  .current-heading p {
-    color: var(--color-accent);
-    font-size: .58rem;
-    text-transform: uppercase;
-    letter-spacing: .12em;
-  }
-
-  .current-heading h2 {
-    margin-top: .8rem;
-    color: var(--color-ink);
-    font-size: clamp(1.05rem, 1.8vw, 1.35rem);
-    font-weight: 600;
-    line-height: 1.3;
-    letter-spacing: -.035em;
-  }
-
-  @media (max-width: 760px) {
-    .current-strip .page-shell { grid-template-columns: 1fr; gap: 1.4rem; }
   }
 </style>

@@ -1,0 +1,63 @@
+---
+interface Props {
+  courses: string[];
+}
+
+const { courses } = Astro.props;
+---
+
+<ol class="study-grid">
+  {courses.map((course, index) => (
+    <li>
+      <span>{String(index + 1).padStart(2, '0')}</span>
+      <p>{course}</p>
+    </li>
+  ))}
+</ol>
+
+<style>
+  .study-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid var(--color-line);
+  }
+
+  li {
+    display: grid;
+    grid-template-columns: 2.4rem minmax(0, 1fr);
+    gap: .75rem;
+    min-height: 4.6rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  li:nth-child(odd) {
+    padding-right: clamp(1rem, 3vw, 3rem);
+  }
+
+  li:nth-child(even) {
+    padding-left: clamp(1rem, 3vw, 3rem);
+    border-left: 1px solid var(--color-line);
+  }
+
+  span {
+    color: var(--color-accent);
+    font-size: .66rem;
+    letter-spacing: .08em;
+  }
+
+  p {
+    font-size: clamp(.78rem, 1.2vw, .9rem);
+    line-height: 1.55;
+    letter-spacing: -.02em;
+  }
+
+  @media (max-width: 620px) {
+    .study-grid { grid-template-columns: 1fr; }
+    li:nth-child(odd),
+    li:nth-child(even) {
+      padding-inline: 0;
+      border-left: 0;
+    }
+  }
+</style>

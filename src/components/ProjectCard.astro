@@ -8,14 +8,13 @@ interface Props {
 }
 const { project, index } = Astro.props;
 const { data } = project;
-const visualLabels = ['RAG', 'SYN', 'FUSE', 'EVAL'];
 ---
 
 <article class="project-row group">
   <a class="project-hit" href={`/projects/${data.slug}/`} aria-label={`Read ${data.title}`}></a>
   <div class:list={['project-stamp', `stamp-${(index % 4) + 1}`]} aria-hidden="true">
-    <span>{visualLabels[index % visualLabels.length]}</span>
-    <small>0{index + 1}</small>
+    <span>{data.projectCode}</span>
+    <small>{String(index + 1).padStart(2, '0')}</small>
   </div>
 
   <div class="project-copy">
@@ -24,7 +23,16 @@ const visualLabels = ['RAG', 'SYN', 'FUSE', 'EVAL'];
       <Tag label={data.domain} />
     </div>
     <h3>{data.shortTitle}</h3>
-    <p>{data.oneLineProblem}</p>
+    <div class="project-story">
+      <div>
+        <span>01 / Problem</span>
+        <p>{data.problemSummary}</p>
+      </div>
+      <div>
+        <span>02 / Methods & outcome</span>
+        <p>{data.methodsOutcome}</p>
+      </div>
+    </div>
     <div class="project-tech">{data.methods.slice(0, 3).join(' · ')} <span>/</span> {data.tools.join(' · ')}</div>
   </div>
 
@@ -46,8 +54,8 @@ const visualLabels = ['RAG', 'SYN', 'FUSE', 'EVAL'];
     grid-template-columns: 5.75rem minmax(0, 1fr) 8.5rem;
     gap: 1.35rem;
     align-items: center;
-    min-height: 8.75rem;
-    padding: 1.1rem;
+    min-height: 12rem;
+    padding: 1.25rem;
     border: 1px solid var(--color-line);
     border-radius: 1.15rem;
     background: rgba(252,247,242,.68);
@@ -76,15 +84,18 @@ const visualLabels = ['RAG', 'SYN', 'FUSE', 'EVAL'];
   .project-stamp::after { width: 1px; height: 120%; background: rgba(255,255,255,.55); transform: rotate(32deg); }
   .project-row:hover .project-stamp::before { transform: scale(1.16); }
   .project-row:hover .project-stamp::after { transform: rotate(48deg); }
-  .project-stamp span { position: relative; z-index: 1; font-size: .76rem; font-weight: 600; letter-spacing: .08em; }
+  .project-stamp span { position: relative; z-index: 1; max-width: 4.4rem; padding-inline: .25rem; font-size: .68rem; font-weight: 600; letter-spacing: .06em; text-align: center; }
   .project-stamp small { position: absolute; right: .5rem; bottom: .4rem; z-index: 1; font-size: .45rem; opacity: .72; }
   .stamp-1 { background: #2447f2; }
   .stamp-2 { background: linear-gradient(145deg, #ff906d, #f15e43); }
   .stamp-3 { background: linear-gradient(145deg, #679f91, #3f6c62); }
   .stamp-4 { background: linear-gradient(145deg, #9c8fc8, #66558f); }
   .project-copy h3 { color: var(--color-ink); font-size: clamp(1rem, 1.5vw, 1.18rem); font-weight: 600; letter-spacing: -.035em; }
-  .project-copy > p { max-width: 48rem; margin-top: .55rem; color: var(--color-muted); font-size: .72rem; line-height: 1.65; }
-  .project-tech { margin-top: .7rem; color: #96908a; font-size: .52rem; line-height: 1.6; }
+  .project-story { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 1.5rem; max-width: 52rem; margin-top: .9rem; }
+  .project-story > div { border-top: 1px solid var(--color-line); padding-top: .65rem; }
+  .project-story span { color: var(--color-accent); font-size: .56rem; letter-spacing: .08em; text-transform: uppercase; }
+  .project-story p { margin-top: .35rem; color: var(--color-muted); font-size: .68rem; line-height: 1.7; }
+  .project-tech { margin-top: .8rem; color: #96908a; font-size: .52rem; line-height: 1.6; }
   .project-tech span { color: var(--color-accent); }
   .project-side { align-self: stretch; display: flex; flex-direction: column; align-items: flex-end; justify-content: space-between; padding: .3rem; text-align: right; }
   .project-highlight strong { display: block; color: var(--color-accent); font-size: 1.25rem; }
@@ -94,6 +105,7 @@ const visualLabels = ['RAG', 'SYN', 'FUSE', 'EVAL'];
 
   @media (max-width: 680px) {
     .project-row { grid-template-columns: 4rem 1fr; gap: 1rem; padding: .9rem; }
+    .project-story { grid-template-columns: 1fr; }
     .project-side { grid-column: 2; align-self: auto; flex-direction: row; align-items: end; }
     .project-stamp { align-self: start; }
     .project-open { opacity: 1; }
