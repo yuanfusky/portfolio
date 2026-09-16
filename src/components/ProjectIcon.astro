@@ -1,0 +1,124 @@
+---
+interface Props {
+  slug: string;
+  code: string;
+  index: number;
+}
+
+const { slug, code, index } = Astro.props;
+---
+
+<div class="project-icon" aria-hidden="true">
+  {slug === 'gas-turbine-fault-diagnosis' && (
+    <svg viewBox="0 0 48 48">
+      <circle cx="23" cy="23" r="4.5" />
+      <path d="M23 18.5c-1.8-5.8.1-9.5 4.2-11.4 1.3 4.4.9 8.3-1.6 12" />
+      <path d="M27 25c5.8-1.8 9.5.1 11.4 4.2-4.4 1.3-8.3.9-12-1.6" />
+      <path d="M20 27c-4 4.6-8.1 5.1-11.9 2.4 3.1-3.4 6.6-5.1 10.7-4.4" />
+      <circle cx="23" cy="23" r="15.5" />
+      <path class="accent-line" d="M31 39h3l2-4 2.2 7 2-3H44" />
+    </svg>
+  )}
+
+  {slug === 'sciq-rag-evaluation' && (
+    <svg viewBox="0 0 48 48">
+      <path d="M9 8.5h20l6 6V33H9Z" />
+      <path d="M29 8.5V15h6M15 19h13M15 24h10M15 29h7" />
+      <circle cx="34" cy="33" r="6.5" />
+      <path class="accent-line" d="m38.8 37.8 5 5M31.2 33h5.6" />
+    </svg>
+  )}
+
+  {slug === 'synthetic-medical-data' && (
+    <svg viewBox="0 0 48 48">
+      <rect x="7.5" y="10" width="25" height="28" rx="2" />
+      <path d="M7.5 18h25M16 18v20M24.5 18v20M11.5 23h1M19.5 23h1M28 23h1M11.5 28h1M19.5 28h1M28 28h1M11.5 33h1M19.5 33h1" />
+      <circle cx="36.5" cy="34.5" r="7" />
+      <path class="accent-line" d="M36.5 31v7M33 34.5h7" />
+    </svg>
+  )}
+
+  {slug === 'sensor-fusion' && (
+    <svg viewBox="0 0 48 48">
+      <circle cx="8" cy="13" r="3" />
+      <circle cx="8" cy="24" r="3" />
+      <circle cx="8" cy="35" r="3" />
+      <path d="M11 13h5l7 11M11 24h12M11 35h5l7-11" />
+      <circle cx="27" cy="24" r="4" />
+      <path d="M31 24h4" />
+      <path class="accent-line" d="M35 24h2l2.2-5 2.4 10 2-5H46" />
+    </svg>
+  )}
+
+  <div class="project-icon-meta">
+    <span>{code}</span>
+    <small>{String(index + 1).padStart(2, '0')}</small>
+  </div>
+</div>
+
+<style>
+  .project-icon {
+    display: grid;
+    gap: .6rem;
+    place-items: center;
+    color: var(--color-ink);
+  }
+
+  svg {
+    width: 3.35rem;
+    height: 3.35rem;
+    overflow: visible;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.35;
+    transition: color 220ms ease, transform 280ms ease;
+  }
+
+  .accent-line {
+    stroke: var(--color-accent);
+  }
+
+  .project-icon-meta {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--color-line);
+    padding-top: .45rem;
+    color: var(--color-muted);
+    font-size: .48rem;
+    letter-spacing: .08em;
+  }
+
+  small {
+    font-size: inherit;
+    opacity: .65;
+  }
+
+  :global(.project-row:hover) svg,
+  :global(.project-row:focus-within) svg {
+    color: var(--color-accent);
+    transform: rotate(-3deg) translateY(-.18rem);
+  }
+
+  :global(.project-row:hover) .project-icon-meta,
+  :global(.project-row:focus-within) .project-icon-meta {
+    color: var(--color-accent);
+    border-color: color-mix(in srgb, var(--color-accent) 40%, var(--color-line));
+  }
+
+  @media (max-width: 680px) {
+    svg {
+      width: 2.7rem;
+      height: 2.7rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    svg {
+      transition: none;
+    }
+  }
+</style>
