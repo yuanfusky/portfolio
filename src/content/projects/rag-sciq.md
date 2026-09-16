@@ -23,7 +23,9 @@ highlightValue: 81.4%
 highlightLabel: Best RAG accuracy
 featured: true
 priority: 1
-links: []
+links:
+  - label: GitHub repository
+    url: https://github.com/yuanfusky/NLP_proj
 ---
 
 ## Problem

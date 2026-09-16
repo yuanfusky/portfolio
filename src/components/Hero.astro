@@ -17,10 +17,10 @@
   </div>
 
   <div class="hero-links" aria-label="Contact and profile links">
-    <button class="hero-link" type="button" title="Link coming soon">Email <span aria-hidden="true">↗</span></button>
-    <button class="hero-link" type="button" title="Link coming soon">GitHub <span aria-hidden="true">↗</span></button>
-    <button class="hero-link" type="button" title="Link coming soon">LinkedIn <span aria-hidden="true">↗</span></button>
-    <button class="hero-link" type="button" title="Link coming soon">Download CV <span aria-hidden="true">↓</span></button>
+    <a class="hero-link" href="mailto:realrenjingyuan@gmail.com">Email <span aria-hidden="true">↗</span></a>
+    <a class="hero-link" href="https://github.com/yuanfusky" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+    <a class="hero-link" href="https://www.linkedin.com/in/jingyuanren" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+    <span class="hero-link hero-link-disabled" aria-disabled="true" title="CV file coming soon">Download CV <span aria-hidden="true">↓</span></span>
   </div>
 
   <a class="hero-scroll" href="#work-with">Scroll to explore <span>↓</span></a>
@@ -72,11 +72,12 @@
 
   .hero-links { position: absolute; bottom: 4.25rem; left: 50%; z-index: 8; display: flex; transform: translateX(-50%); gap: .55rem; white-space: nowrap; opacity: 0; animation: reveal-links .45s ease 5.5s forwards; }
   .hero-link { display: inline-flex; align-items: center; gap: .55rem; border: 1px solid var(--color-line); border-radius: 999px; background: rgba(255,251,246,.82); padding: .6rem .82rem; color: var(--color-muted); font: inherit; font-size: .58rem; cursor: pointer; transition: color .22s ease, background .22s ease, border-color .22s ease, box-shadow .22s ease, transform .22s ease; }
+  .hero-link-disabled { cursor: not-allowed; opacity: .48; }
   .hero-link span { color: var(--color-accent); transition: color .22s ease, transform .22s ease; }
-  .hero-link:hover,
-  .hero-link:focus-visible { border-color: var(--color-accent); background: var(--color-accent); color: white; box-shadow: 0 9px 24px rgba(36, 71, 242, .2); transform: translateY(-3px); }
-  .hero-link:hover span,
-  .hero-link:focus-visible span { color: white; transform: translate(2px, -2px); }
+  .hero-link:not(.hero-link-disabled):hover,
+  .hero-link:not(.hero-link-disabled):focus-visible { border-color: var(--color-accent); background: var(--color-accent); color: white; box-shadow: 0 9px 24px rgba(36, 71, 242, .2); transform: translateY(-3px); }
+  .hero-link:not(.hero-link-disabled):hover span,
+  .hero-link:not(.hero-link-disabled):focus-visible span { color: white; transform: translate(2px, -2px); }
   @keyframes reveal-links { to { opacity: 1; } }
   .hero-scroll { position: absolute; bottom: 1.3rem; left: 50%; z-index: 8; transform: translateX(-50%); color: var(--color-muted); font-size: .55rem; text-decoration: none; }
   .hero-scroll span { color: var(--color-accent); }

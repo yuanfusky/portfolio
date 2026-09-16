@@ -81,7 +81,7 @@ For a future card image field, add it to the collection schema in `src/content.c
 
 ## Replace contact placeholders
 
-Placeholder URLs and the email address currently appear in `Navbar.astro`, `Footer.astro`, `index.astro`, and `about.astro`. Replace them with Jingyuan's GitHub, LinkedIn, and email. Add the real CV as `public/cv.pdf`.
+GitHub, LinkedIn, and email links are configured in the site components. Add the real CV as `public/cv.pdf`, then replace the disabled CV labels in `Hero.astro` and `Footer.astro` with links to `/cv.pdf`.
 
 ## Deploy
 

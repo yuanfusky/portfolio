@@ -22,7 +22,9 @@ highlightValue: 1st
 highlightLabel: Encare Hackathon 2026
 featured: true
 priority: 2
-links: []
+links:
+  - label: GitHub repository
+    url: https://github.com/biubiubiuandvivovivovivo/Encare-Hackathon-2026
 ---
 
 ## Problem
