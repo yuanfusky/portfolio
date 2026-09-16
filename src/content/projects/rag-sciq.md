@@ -17,7 +17,8 @@ methods:
   - multi-seed evaluation
 oneLineProblem: How does retrieval quality affect the reliability and accuracy of RAG-based science question answering?
 problemSummary: Determine whether RAG accuracy is driven by genuinely useful evidence, and how the system fails when answer-bearing context is removed, compressed, shuffled, or replaced by distractors.
-methodsOutcome: Built a reproducible local RAG evaluation pipeline with embedding retrieval, multi-seed tests, ablations, context interventions, and oracle support. The best setting reached 81.4% accuracy versus 43.7% for the LLM-only baseline.
+methodsSummary: Python and sentence-transformers; embedding retrieval; chunk-size and top-k comparison; multi-seed evaluation; ablation, context-intervention, and oracle-support experiments.
+outcomeSummary: The best RAG configuration reached 81.4% accuracy versus 43.7% for the LLM-only baseline, a gain of about 37.7 percentage points.
 interactionIdea: "Planned RAG pipeline: Query → Retrieved Context → Generated Answer → Evaluation Result. Inspect each step to see where reliability can break down."
 highlightValue: 81.4%
 highlightLabel: Best RAG accuracy

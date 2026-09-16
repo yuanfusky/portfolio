@@ -20,7 +20,8 @@ methods:
   - outlier rejection
 oneLineProblem: How can hidden physical states be estimated from noisy, indirect, and imperfect sensor measurements?
 problemSummary: Estimate vehicle position and smartphone orientation from noisy, indirect measurements affected by timing errors, nonlinear observation models, imperfect calibration, and environmental disturbances.
-methodsOutcome: Implemented MATLAB pipelines using TOA/TDOA localization, CRLB analysis, Kalman filtering, and a quaternion EKF with disturbance rejection, producing real-time state estimates and diagnostic visualizations for two sensor systems.
+methodsSummary: MATLAB; TOA/TDOA localization; CRLB and SLS; grid search; Kalman filtering; quaternion EKF; calibration and accelerometer/magnetometer outlier rejection.
+outcomeSummary: Produced working acoustic-tracking and real-time orientation-estimation pipelines with disturbance handling and diagnostic visualizations for both sensor systems.
 interactionIdea: "Planned sensor-noise control: increase measurement noise to compare raw observations against the filtered state estimate."
 highlightValue: "2"
 highlightLabel: Sensor systems studied

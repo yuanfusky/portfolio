@@ -18,7 +18,8 @@ methods:
   - fault localization
 oneLineProblem: How can sensor faults be detected and localized under changing gas-turbine operating conditions without turning normal variation into false alarms?
 problemSummary: Distinguish true failures in gas-turbine pulsation sensors from changes caused by load, temperature, noise, missing data, unfamiliar operating conditions, or simultaneous faults.
-methodsOutcome: Designing a Python pipeline that combines normal-behaviour regression with prediction and pairwise residuals, robust MAD normalization, EWMA/CUSUM, persistence, and hysteresis. The target is interpretable low-false-alarm localization of FAULT_085, FAULT_095, or FAULT_BOTH.
+methodsSummary: Python and scikit-learn; normal-behaviour regression; prediction and 085/095 pairwise residuals; robust MAD normalization; EWMA/CUSUM; persistence, hysteresis, and OOD checks.
+outcomeSummary: Targeting an interpretable diagnostic prototype that localizes FAULT_085, FAULT_095, or FAULT_BOTH from chronological 1 Hz data while controlling false alarms.
 interactionIdea: "Planned diagnostic timeline: inspect operating conditions, expected sensor behaviour, residual scores, alarm state, and the final localized fault hypothesis."
 highlightValue: 8 + 4
 highlightLabel: Prediction and pairwise residual channels

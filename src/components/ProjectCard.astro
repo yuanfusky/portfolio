@@ -29,11 +29,15 @@ const { data } = project;
         <p>{data.problemSummary}</p>
       </div>
       <div>
-        <span>02 / Methods & outcome</span>
-        <p>{data.methodsOutcome}</p>
+        <span>02 / Methods & tools</span>
+        <p>{data.methodsSummary}</p>
+        <small>{data.tools.join(' · ')}</small>
+      </div>
+      <div>
+        <span>03 / Outcome & goal</span>
+        <p>{data.outcomeSummary}</p>
       </div>
     </div>
-    <div class="project-tech">{data.methods.slice(0, 3).join(' · ')} <span>/</span> {data.tools.join(' · ')}</div>
   </div>
 
   <div class="project-side">
@@ -91,21 +95,23 @@ const { data } = project;
   .stamp-3 { background: linear-gradient(145deg, #679f91, #3f6c62); }
   .stamp-4 { background: linear-gradient(145deg, #9c8fc8, #66558f); }
   .project-copy h3 { color: var(--color-ink); font-size: clamp(1rem, 1.5vw, 1.18rem); font-weight: 600; letter-spacing: -.035em; }
-  .project-story { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 1.5rem; max-width: 52rem; margin-top: .9rem; }
+  .project-story { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem 1.25rem; max-width: 58rem; margin-top: .9rem; }
   .project-story > div { border-top: 1px solid var(--color-line); padding-top: .65rem; }
   .project-story span { color: var(--color-accent); font-size: .56rem; letter-spacing: .08em; text-transform: uppercase; }
   .project-story p { margin-top: .35rem; color: var(--color-muted); font-size: .68rem; line-height: 1.7; }
-  .project-tech { margin-top: .8rem; color: #96908a; font-size: .52rem; line-height: 1.6; }
-  .project-tech span { color: var(--color-accent); }
+  .project-story small { display: block; margin-top: .45rem; color: #96908a; font-size: .54rem; line-height: 1.55; }
   .project-side { align-self: stretch; display: flex; flex-direction: column; align-items: flex-end; justify-content: space-between; padding: .3rem; text-align: right; }
   .project-highlight strong { display: block; color: var(--color-accent); font-size: 1.25rem; }
   .project-highlight span { display: block; max-width: 8rem; margin-top: .25rem; color: var(--color-muted); font-size: .47rem; line-height: 1.4; }
   .project-open { color: var(--color-accent); font-size: .55rem; opacity: 0; transform: translateX(-.4rem); transition: opacity .25s ease, transform .25s ease; }
   .project-row:hover .project-open { opacity: 1; transform: translateX(0); }
 
+  @media (max-width: 900px) {
+    .project-story { grid-template-columns: 1fr; }
+  }
+
   @media (max-width: 680px) {
     .project-row { grid-template-columns: 4rem 1fr; gap: 1rem; padding: .9rem; }
-    .project-story { grid-template-columns: 1fr; }
     .project-side { grid-column: 2; align-self: auto; flex-direction: row; align-items: end; }
     .project-stamp { align-self: start; }
     .project-open { opacity: 1; }

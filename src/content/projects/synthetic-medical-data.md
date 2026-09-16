@@ -16,7 +16,8 @@ methods:
   - semantic-preserving preprocessing
 oneLineProblem: How can synthetic medical data remain useful and realistic while improving privacy?
 problemSummary: Generate a privacy-improving medical table without breaking its schema, statistical relationships, or the distinct meanings of Unknown, Not applicable, and blank values across hundreds of columns.
-methodsOutcome: Built a Gaussian-copula hybrid pipeline with conservative fallbacks, schema validation, privacy diagnostics, quality evaluation, and CSV round-trip checks. The final strategy produced the best confirmed team score and won 1st prize.
+methodsSummary: Python; Gaussian-copula modelling for reliable numeric subsets; conservative fallbacks for risky fields; schema validation, privacy diagnostics, quality evaluation, and CSV round-trip checks.
+outcomeSummary: The final hybrid strategy preserved medical semantics and submission constraints, produced the best confirmed team score, and won 1st prize in the Encare Hackathon 2026.
 interactionIdea: "Planned privacy–utility control: adjust privacy protection and inspect the resulting changes in statistical fidelity and downstream usability."
 highlightValue: 1st
 highlightLabel: Encare Hackathon 2026

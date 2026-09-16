@@ -68,7 +68,24 @@ const courses = [
   <section class="section-block" id="background">
     <div class="page-shell">
       <SectionTitle index="04 / Background" title="Education & Experience" intro="A technical path grounded in information engineering, expanded through data science, and sharpened by communication practice." />
-      <div class="grid gap-12 lg:grid-cols-[minmax(0,1.35fr)_minmax(20rem,0.65fr)]">
+      <div>
+        <ExperienceItem company="Linköping University" role="Machine Learning Teaching Assistant · 2026–Present" summary="Supporting Machine Learning teaching through hands-on guidance, assessment, and discussion-based learning." bullets={[
+          'Guide students during laboratory sessions and help them reason through implementation and model-evaluation problems.',
+          'Grade assignments and provide structured feedback on technical work.',
+          'Lead seminar sessions that connect machine learning concepts with exercises and discussion.',
+        ]} />
+      </div>
+
+      <div class="mt-5">
+        <ExperienceItem company="ByteDance / TikTok" role="Content Operations Intern, Documentary Studio" summary="Worked with documentary content operations in a large-scale digital platform environment, using dashboard tracking, A/B testing, content tagging, and competitive analysis to understand retention patterns and content performance." bullets={[
+          'Built dashboards tracking play count, completion rate, and drop-off points to surface retention patterns beyond raw views.',
+          'Designed title and thumbnail A/B tests with significance testing, accounting for algorithmic traffic allocation.',
+          'Developed a genre, region, and tone tagging framework and analyzed relationships with recommendation performance.',
+          'Studied comparable accounts to identify content gaps and demand trends in the documentary vertical.',
+        ]} />
+      </div>
+
+      <div class="mt-16 grid gap-12 lg:grid-cols-[minmax(0,1.35fr)_minmax(20rem,0.65fr)]">
         <div>
           <EducationItem school="Linköping University" degree="MSc, Data Science and Information Engineering" location="Linköping, Sweden" date="Expected 2027" detail="Relevant coursework: Machine Learning, Bayesian Learning, Sensor Fusion, Detection & Estimation of Signals, Multidimensional Signal Analysis, NLP, and Data Mining." />
           <EducationItem school="Jiangsu University" degree="BEng, Electronic Information Science and Technology" location="Jiangsu, China" date="2015–2019" detail="Focus: signal processing, measurement systems, and communications engineering." thesis="Digital Watermarking for Speech Signals in MATLAB, including robustness analysis under noise and compression attacks." />
@@ -85,22 +102,6 @@ const courses = [
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="mt-16">
-        <ExperienceItem company="Linköping University" role="Incoming Machine Learning Teaching Assistant · Autumn 2026" summary="Selected for an upcoming teaching assistant role in Machine Learning. Teaching responsibilities and contributions will be documented after the appointment begins." bullets={[
-          'Selected to support university-level Machine Learning teaching.',
-          'Role details will be added once formal teaching work begins.',
-        ]} />
-      </div>
-
-      <div class="mt-5">
-        <ExperienceItem company="ByteDance / TikTok" role="Content Operations Intern, Documentary Studio" summary="Worked with documentary content operations in a large-scale digital platform environment, using dashboard tracking, A/B testing, content tagging, and competitive analysis to understand retention patterns and content performance." bullets={[
-          'Built dashboards tracking play count, completion rate, and drop-off points to surface retention patterns beyond raw views.',
-          'Designed title and thumbnail A/B tests with significance testing, accounting for algorithmic traffic allocation.',
-          'Developed a genre, region, and tone tagging framework and analyzed relationships with recommendation performance.',
-          'Studied comparable accounts to identify content gaps and demand trends in the documentary vertical.',
-        ]} />
       </div>
     </div>
   </section>
