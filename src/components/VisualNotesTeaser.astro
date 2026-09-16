@@ -71,14 +71,15 @@
 
   .camera-link:hover svg,
   .camera-link:focus-visible svg {
-    color: var(--color-accent);
+    color: var(--color-ink);
+    filter: drop-shadow(.16rem .16rem 0 var(--color-accent));
     transform: rotate(-4deg) translateY(-.15rem);
   }
 
   .camera-link:hover span,
   .camera-link:focus-visible span {
     border-color: var(--color-accent);
-    color: var(--color-accent);
+    color: var(--color-ink);
   }
 
   @media (min-width: 760px) {
